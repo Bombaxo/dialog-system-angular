@@ -18,13 +18,87 @@
 
       <span class="spacer"></span>
 
-      <button mat-icon-button>
-        <mat-icon>share</mat-icon>
-      </button>
+      <a href="https://github.com/Bombaxo/dialog-system-angular" mat-icon-button target="_blank" matTooltip="Code repository - Github">
+        <mat-icon>code</mat-icon>
+      </a>
     </mat-toolbar>
 
     <main>
-      CONTENT
+      <h1>Dialog alerts</h1>
+      <section>
+        <button mat-flat-button color="primary">
+          <mat-icon>notifications</mat-icon>
+          Alert starndard
+        </button>
+        <button mat-flat-button>
+          <mat-icon>warning</mat-icon>
+          Alert warning
+        </button>
+        <button mat-flat-button>
+          <mat-icon>error</mat-icon>
+          Alert danger
+        </button>
+      </section>
+
+      <h1>Dialog confirmation</h1>
+      <section>
+        <button mat-flat-button>
+          <mat-icon>check</mat-icon>
+          Confirm success
+        </button>
+        <button mat-flat-button>
+          <mat-icon>error</mat-icon>
+          Confirm danger
+        </button>
+        <button mat-flat-button>
+          <mat-icon>warning</mat-icon>
+          Confirm warning
+        </button>
+        <button mat-flat-button color="primary">
+          <mat-icon>info</mat-icon>
+          Confirm info
+        </button>
+      </section>
+
+      <h1>Dialog component</h1>
+      <section>
+        <button mat-flat-button color="primary">
+          <mat-icon>view_list</mat-icon>
+          Open Form
+        </button>
+        <button mat-flat-button color="primary">
+          <mat-icon>feed</mat-icon>
+          Open Report
+        </button>
+      </section>
+
+      <h1>Dialog confirm inside dialog</h1>
+      <section>
+        <button mat-flat-button>
+          <mat-icon>check</mat-icon>
+          Inner success
+        </button>
+        <button mat-flat-button>
+          <mat-icon>error</mat-icon>
+          Inner danger
+        </button>
+        <button mat-flat-button>
+          <mat-icon>warning</mat-icon>
+          Inner warning
+        </button>
+        <button mat-flat-button color="primary">
+          <mat-icon>info</mat-icon>
+          Inner info
+        </button>
+      </section>
+
+      <h1>Dialog custom overlay</h1>
+      <section>
+        <button mat-flat-button>
+          <mat-icon>branding_watermark</mat-icon>
+          Custom overlay
+        </button>
+      </section>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
