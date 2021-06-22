@@ -1,0 +1,37 @@
+
+<div class="dialog-message" data-test="test-dialog-message">
+    <div class="dialog-message__header">
+        <img *ngIf="dialogContent?.image"
+            [src]="'/assets/imgs/' + dialogContent?.image"
+            data-test="test-dialog-img" />
+        <h2 *ngIf="dialogContent?.title"
+            data-test="test-dialog-title">{{ dialogContent?.title | translate }}</h2>
+    </div>
+
+    <mat-dialog-content class="dialog-message__content">
+
+        <div *ngIf="dialogContent?.content">
+            <ng-container *ngFor="let el of dialogContent?.content; let count = index">
+                <p [attr.data-test]="'test-dialog-{{ count }}'" [innerHTML]="el | translate | sanitize : 'html'"></p>
+            </ng-container>
+        </div>
+
+        <mat-dialog-actions>
+            <button *ngIf="dialogContent?.secondaryButton"
+                    tw-outline-button
+                    [size]="dialogContent?.secondaryButton?.size || 'md'"
+                    [color]="dialogContent?.secondaryButton?.color || 'primary'"
+                    (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action })"
+                    data-test="test-dialog-secondary-btn">
+                {{ dialogContent?.secondaryButton?.label | translate | sentenceCase }}
+            </button>
+            <button tw-solid-button
+                    [size]="dialogContent?.primaryButton?.size || 'md'"
+                    [color]="dialogContent?.primaryButton?.color || 'primary'"
+                    (click)="onButtonAction.emit({ action: dialogContent?.primaryButton?.action })"
+                    data-test="test-dialog-primary-btn">
+                {{ dialogContent?.primaryButton?.label | translate | sentenceCase }}
+            </button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</div>

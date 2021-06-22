@@ -1,0 +1,41 @@
+<div class="dialog" [ngSwitch]="templateType">
+    <button *ngIf="showCloseIcon"
+            mat-dialog-close
+            tw-link-button
+            color="primary"
+            data-test="test-dialog-close">
+        <i nz-icon nzType="close" nzTheme="outline"></i>
+    </button>
+
+    <!-- component -->
+    <ng-container *ngSwitchCase="'component'">
+      <ng-container *ngComponentOutlet="dialogData.component"></ng-container>
+    </ng-container>
+
+    <!-- message -->
+    <ng-container *ngSwitchCase="'message'">
+        <tx-dialog-message
+            [dialogData]="dialogData"
+            [dialogContent]="dialogContent"
+            (onButtonAction)="dialogClose($event)">
+        </tx-dialog-message>
+    </ng-container>
+
+    <div class="dialog__confirm"
+        [ngClass]="{ 'dialog__confirm--open': showConfirmBox }"
+        data-test="test-dialog-confirm-inside">
+        <div class="dialog__innner-overlay"
+            (click)="dialogCloseConfirmInside({ action: 'close-dialog' })"
+            data-test="test-dialog-inside-overlay"></div>
+        <div class="dialog__confirm-box"
+            [ngClass]="{'dialog__confirm-box--open': showConfirmBox}">
+            <tx-dialog-message
+                *ngIf="showConfirmBox"
+                [dialogData]="dialogConfirmData"
+                [dialogContent]="dialogConfirmContent"
+                (onButtonAction)="dialogCloseConfirmInside($event)">
+            </tx-dialog-message>
+        </div>
+    </div>
+
+</div>

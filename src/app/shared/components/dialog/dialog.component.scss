@@ -1,0 +1,75 @@
+.dialog {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    & > button {
+        position: absolute;
+        right: -8px;
+        top: 6px;
+        z-index: 500000;
+        font-size: 15px !important;
+    }
+    &__confirm {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        top: 0;
+        bottom: 0;
+        z-index: 5;
+        &--open {
+            visibility: visible;
+            z-index: 500000;
+        }
+    }
+    &__confirm-box {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        width: 100%;
+        bottom: -200px;
+        z-index: 600000;
+        padding: 16px 0;
+        background: white;
+        &--open {
+            visibility: visible;
+            -webkit-transition: bottom 0.5s ease;
+            -moz-transition: bottom 0.5s ease;
+            -ms-transition: bottom 0.5s ease;
+            -o-transition: bottom 0.5s ease;
+            transition: bottom 0.5s ease;
+            bottom: 0;
+        }
+    }
+
+    &__innner-overlay {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        z-index: 550000;
+        background: rgba($color: #333, $alpha: 0.7);
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 756px) {
+    .dialog {
+        padding: 16px;
+        & > button {
+            right: -15px;
+            top: 2px;
+            font-size: 12px !important;
+        }
+        &__confirm-box {
+            padding: 16px;
+        }
+    }
+}

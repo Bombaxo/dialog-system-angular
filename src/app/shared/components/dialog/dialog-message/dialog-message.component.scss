@@ -1,0 +1,89 @@
+.dialog-message {
+    &__header {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        h2 {
+            font-size: 19px;
+            line-height: 11px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        img {
+            max-height: 80px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 16px 0 0 0;
+
+        p {
+            text-align: center;
+            margin: 0 0 16px;
+            font-size: 15px;
+            line-height: 16px;
+        }
+
+        mat-dialog-actions {
+            justify-content: center;
+            gap: 10px;
+            padding: 0 0;
+            margin: 0;
+            width: 100%;
+
+            button {
+                min-width: 145px;
+                min-height: 40px;
+            }
+        }
+    }
+
+    &.dialog-content-xl {
+        height: 100%;
+    }
+}
+
+@media (max-width: 756px) {
+    .dialog-message {
+        mat-dialog-actions {
+            justify-content: center;
+            gap: 10px;
+            padding: 0 0;
+            margin: 0;
+            width: 100%;
+
+            button {
+                min-width: 120px;
+            }
+        }
+    }
+}
+
+@media (max-width: 300px) {
+    .dialog-message {
+        mat-dialog-actions {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 0;
+            button {
+                min-width: unset;
+                width: 100%;
+            }
+            & :first-child {
+                margin-top: 8px;
+            }
+        }
+    }
+}
