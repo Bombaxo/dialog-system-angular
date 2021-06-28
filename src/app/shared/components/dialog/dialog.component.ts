@@ -2,10 +2,10 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 
-import { DialogContent, DialogResponse, DialogTemplateType } from '@core/modules/dialogs/models/dialog.interface';
+import { DialogContent, DialogResponse, DialogTemplateType } from '../../interfaces/dialog.interface';
 
 @Component({
-    selector: 'tx-dialog',
+    selector: 'ui-dialog',
     templateUrl: './dialog.component.html',
     styleUrls: ['./dialog.component.scss']
 })

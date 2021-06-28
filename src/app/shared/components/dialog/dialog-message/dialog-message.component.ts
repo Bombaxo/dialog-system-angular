@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { DialogContent, DialogResponse } from '@core/modules/dialogs/models/dialog.interface';
+import { DialogContent, DialogResponse } from '../../../interfaces/dialog.interface';
 
 @Component({
-    selector: 'tx-dialog-message',
+    selector: 'ui-dialog-message',
     templateUrl: './dialog-message.component.html',
     styleUrls: ['./dialog-message.component.scss']
 })

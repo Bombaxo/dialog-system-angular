@@ -1,5 +1,5 @@
 import { MatDialogConfig } from '@angular/material/dialog';
-import { Button } from '@core/modules/dialogs/models/button.interface';
+import { Button } from './button.interface';
 
 export type DialogTemplateType = 'message' | 'confirmation' | 'component';
 

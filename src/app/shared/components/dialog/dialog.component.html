@@ -14,11 +14,11 @@
 
     <!-- message -->
     <ng-container *ngSwitchCase="'message'">
-        <tx-dialog-message
+        <ui-dialog-message
             [dialogData]="dialogData"
             [dialogContent]="dialogContent"
             (onButtonAction)="dialogClose($event)">
-        </tx-dialog-message>
+        </ui-dialog-message>
     </ng-container>
 
     <div class="dialog__confirm"
@@ -29,12 +29,12 @@
             data-test="test-dialog-inside-overlay"></div>
         <div class="dialog__confirm-box"
             [ngClass]="{'dialog__confirm-box--open': showConfirmBox}">
-            <tx-dialog-message
+            <ui-dialog-message
                 *ngIf="showConfirmBox"
                 [dialogData]="dialogConfirmData"
                 [dialogContent]="dialogConfirmContent"
                 (onButtonAction)="dialogCloseConfirmInside($event)">
-            </tx-dialog-message>
+            </ui-dialog-message>
         </div>
     </div>
 

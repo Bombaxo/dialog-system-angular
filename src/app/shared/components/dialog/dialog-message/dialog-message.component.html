@@ -5,32 +5,32 @@
             [src]="'/assets/imgs/' + dialogContent?.image"
             data-test="test-dialog-img" />
         <h2 *ngIf="dialogContent?.title"
-            data-test="test-dialog-title">{{ dialogContent?.title | translate }}</h2>
+            data-test="test-dialog-title">{{ dialogContent?.title }}</h2>
     </div>
 
     <mat-dialog-content class="dialog-message__content">
 
         <div *ngIf="dialogContent?.content">
             <ng-container *ngFor="let el of dialogContent?.content; let count = index">
-                <p [attr.data-test]="'test-dialog-{{ count }}'" [innerHTML]="el | translate | sanitize : 'html'"></p>
+                <p>{{ el }}</p>
             </ng-container>
         </div>
 
         <mat-dialog-actions>
             <button *ngIf="dialogContent?.secondaryButton"
-                    tw-outline-button
-                    [size]="dialogContent?.secondaryButton?.size || 'md'"
+                    mat-outline-button
+                    [class]="dialogContent?.secondaryButton?.size || 'md'"
                     [color]="dialogContent?.secondaryButton?.color || 'primary'"
                     (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action })"
                     data-test="test-dialog-secondary-btn">
-                {{ dialogContent?.secondaryButton?.label | translate | sentenceCase }}
+                {{ dialogContent?.secondaryButton?.label }}
             </button>
-            <button tw-solid-button
-                    [size]="dialogContent?.primaryButton?.size || 'md'"
+            <button mat-flat-button
+                    [class]="dialogContent?.primaryButton?.size || 'md'"
                     [color]="dialogContent?.primaryButton?.color || 'primary'"
                     (click)="onButtonAction.emit({ action: dialogContent?.primaryButton?.action })"
                     data-test="test-dialog-primary-btn">
-                {{ dialogContent?.primaryButton?.label | translate | sentenceCase }}
+                {{ dialogContent?.primaryButton?.label }}
             </button>
         </mat-dialog-actions>
     </mat-dialog-content>
