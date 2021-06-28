@@ -18,86 +18,115 @@
 
       <span class="spacer"></span>
 
-      <a href="https://github.com/Bombaxo/dialog-system-angular" mat-icon-button target="_blank" matTooltip="Code repository - Github">
+      <a href="https://github.com/Bombaxo/dialog-system-angular" mat-icon-button target="_blank"
+        matTooltip="Code repository - Github">
         <mat-icon>code</mat-icon>
       </a>
     </mat-toolbar>
 
     <main>
-      <h1>Dialog alerts</h1>
-      <section>
-        <button mat-flat-button color="primary">
-          <mat-icon>notifications</mat-icon>
-          Alert starndard
-        </button>
-        <button mat-flat-button>
-          <mat-icon>warning</mat-icon>
-          Alert warning
-        </button>
-        <button mat-flat-button>
-          <mat-icon>error</mat-icon>
-          Alert danger
-        </button>
+      <h1>Alerts</h1>
+      <section class="row">
+        <div class="col-12 col-md-4 d-flex justify-content-end">
+          <button mat-flat-button color="primary" (click)="openAlertStandar()">
+            <mat-icon>notifications</mat-icon>
+            Alert starndard
+          </button>
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-center">
+          <button mat-flat-button (click)="openAlertWarning()">
+            <mat-icon>warning</mat-icon>
+            Alert warning
+          </button>
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-start">
+          <button mat-flat-button (click)="openAlertDanger()">
+            <mat-icon>error</mat-icon>
+            Alert danger
+          </button>
+        </div>
       </section>
 
-      <h1>Dialog confirmation</h1>
-      <section>
-        <button mat-flat-button>
-          <mat-icon>check</mat-icon>
-          Confirm success
-        </button>
-        <button mat-flat-button>
-          <mat-icon>error</mat-icon>
-          Confirm danger
-        </button>
-        <button mat-flat-button>
-          <mat-icon>warning</mat-icon>
-          Confirm warning
-        </button>
-        <button mat-flat-button color="primary">
-          <mat-icon>info</mat-icon>
-          Confirm info
-        </button>
+      <h1>Confirmation actions</h1>
+      <section class="row">
+        <div class="col-12 col-md-3">
+          <button mat-flat-button>
+            <mat-icon>check</mat-icon>
+            Confirm success
+          </button>
+        </div>
+        <div class="col-12 col-md-3 d-flex justify-content-center">
+          <button mat-flat-button>
+            <mat-icon>error</mat-icon>
+            Confirm danger
+          </button>
+        </div>
+        <div class="col-12 col-md-3 d-flex justify-content-center">
+          <button mat-flat-button>
+            <mat-icon>warning</mat-icon>
+            Confirm warning
+          </button>
+        </div>
+        <div class="col-12 col-md-3 d-flex justify-content-end">
+          <button mat-flat-button color="primary">
+            <mat-icon>info</mat-icon>
+            Confirm info
+          </button>
+        </div>
       </section>
 
-      <h1>Dialog component</h1>
-      <section>
-        <button mat-flat-button color="primary">
-          <mat-icon>view_list</mat-icon>
-          Open Form
-        </button>
-        <button mat-flat-button color="primary">
-          <mat-icon>feed</mat-icon>
-          Open Report
-        </button>
+      <h1>Components injection</h1>
+      <section class="row">
+        <div class="col-12 col-md-6 d-flex justify-content-end">
+          <button mat-flat-button color="primary">
+            <mat-icon>view_list</mat-icon>
+            Open Form
+          </button>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-start">
+          <button mat-flat-button color="primary">
+            <mat-icon>feed</mat-icon>
+            Open Report
+          </button>
+        </div>
       </section>
 
       <h1>Dialog confirm inside dialog</h1>
-      <section>
-        <button mat-flat-button>
-          <mat-icon>check</mat-icon>
-          Inner success
-        </button>
-        <button mat-flat-button>
-          <mat-icon>error</mat-icon>
-          Inner danger
-        </button>
-        <button mat-flat-button>
-          <mat-icon>warning</mat-icon>
-          Inner warning
-        </button>
-        <button mat-flat-button color="primary">
-          <mat-icon>info</mat-icon>
-          Inner info
-        </button>
+      <section class="row">
+        <div class="col-12 col-md-3">
+          <button mat-flat-button>
+            <mat-icon>check</mat-icon>
+            Inner success
+          </button>
+        </div>
+        <div class="col-12 col-md-3 d-flex justify-content-center">
+          <button mat-flat-button>
+            <mat-icon>error</mat-icon>
+            Inner danger
+          </button>
+        </div>
+        <div class="col-12 col-md-3 d-flex justify-content-center">
+          <button mat-flat-button>
+            <mat-icon>warning</mat-icon>
+            Inner warning
+          </button>
+        </div>
+        <div class="col-12 col-md-3 d-flex justify-content-end">
+          <button mat-flat-button color="primary">
+            <mat-icon>info</mat-icon>
+            Inner info
+          </button>
+        </div>
       </section>
 
-      <h1>Dialog custom overlay</h1>
-      <section>
-        <button mat-flat-button>
-          <mat-icon>branding_watermark</mat-icon>
-          Custom overlay
-        </button>
+      <h1>Custom verlaoy</h1>
+      <section class="row">
+        <div class="d-flex justify-content-center col-12">
+          <button mat-flat-button>
+            <mat-icon>branding_watermark</mat-icon>
+            Custom overlay
+          </button>
+        </div>
       </section>
     </main>
   </mat-sidenav-content>
