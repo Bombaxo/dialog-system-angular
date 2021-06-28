@@ -18,7 +18,7 @@
 
         <mat-dialog-actions>
             <button *ngIf="dialogContent?.secondaryButton"
-                    mat-outline-button
+                    mat-stroked-button
                     [class]="dialogContent?.secondaryButton?.size || 'md'"
                     [color]="dialogContent?.secondaryButton?.color || 'primary'"
                     (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action })"
