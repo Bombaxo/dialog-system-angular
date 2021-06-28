@@ -10,6 +10,8 @@ import { DialogContent, DialogResponse, DialogConfig } from './shared/interfaces
 })
 export class AppComponent {
 
+  response = '';
+
   constructor(
     private dialogService: DialogService,
   ) { }
@@ -38,10 +40,11 @@ export class AppComponent {
 
   openAlertWarning() {
     const dialogContent: DialogContent = {
-      title: 'Oops!',
-      content: ['You cannot perform this action!'],
+      title: 'Ohhh!',
+      content: ['You are trying to book an appointment in the past', 'We dont handle time machines...yet'],
       primaryButton: {
-        label: 'Ok'
+        label: 'Ok',
+        icon: ''
       }
     };
 
@@ -78,9 +81,14 @@ export class AppComponent {
   openConfirmSuccess() {
     const dialogContent: DialogContent = {
       title: 'Hey!',
-      content: ['You already have booked this appointment'],
+      content: ['Do you want to confirm the appointment?', 'Appointment time: 21:30 of Friday 24.11.21'],
       primaryButton: {
-        label: 'Ok'
+        label: 'Confirm',
+        color: 'primary',
+        action: 'book-confirmed'
+      },
+      secondaryButton: {
+        label: 'Cancel'
       }
     };
 
@@ -89,32 +97,26 @@ export class AppComponent {
       dialogContent: dialogContent
     };
 
-    this.dialogService.open(dialogConfig);
-  }
-
-  openConfirmWarning() {
-    const dialogContent: DialogContent = {
-      title: 'Hey!',
-      content: ['You already have booked this appointment'],
-      primaryButton: {
-        label: 'Ok'
-      }
-    };
-
-    const dialogConfig: DialogConfig = {
-      templateType: 'message',
-      dialogContent: dialogContent
-    };
-
-    this.dialogService.open(dialogConfig);
+    this.dialogService.open(dialogConfig)
+      .afterClosed()
+      .subscribe((response: DialogResponse) => {
+        if (response?.action === 'book-confirmed') {
+          this.response = response?.action;
+        }
+      });;
   }
 
   openConfirmDanger() {
     const dialogContent: DialogContent = {
       title: 'Hey!',
-      content: ['You already have booked this appointment'],
+      content: ['Are you sure you want to cancel the appointment?', 'Appointment time: 21:30 of Friday 24.11.21'],
       primaryButton: {
-        label: 'Ok'
+        label: 'Ok',
+        color: 'danger',
+        action: 'book-cancelled'
+      },
+      secondaryButton: {
+        label: 'Cancel',
       }
     };
 
@@ -123,15 +125,25 @@ export class AppComponent {
       dialogContent: dialogContent
     };
 
-    this.dialogService.open(dialogConfig);
+    this.dialogService.open(dialogConfig)
+      .afterClosed()
+      .subscribe((response: DialogResponse) => {
+        if (response?.action === 'book-cancelled') {
+          this.response = response?.action;
+        }
+      });
   }
 
   openConfirmInfoSuccess() {
     const dialogContent: DialogContent = {
-      title: 'Hey!',
-      content: ['You already have booked this appointment'],
+      title: 'Logout',
+      content: ['Do you want to logout from your account?'],
       primaryButton: {
-        label: 'Ok'
+        label: 'Logout',
+        action: 'logout'
+      },
+      secondaryButton: {
+        label: 'Cancel',
       }
     };
 
@@ -140,7 +152,13 @@ export class AppComponent {
       dialogContent: dialogContent
     };
 
-    this.dialogService.open(dialogConfig);
+    this.dialogService.open(dialogConfig)
+      .afterClosed()
+      .subscribe((response: DialogResponse) => {
+        if (response?.action === 'logout') {
+          this.response = response?.action;
+        }
+      });;
   }
 
 

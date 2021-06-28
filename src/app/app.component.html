@@ -48,27 +48,24 @@
       </section>
 
       <h1>Confirmation actions</h1>
+      <h3>The response of dialog action: {{ response }}</h3>
       <section class="row">
-        <div class="col-12 col-md-3">
-          <button mat-flat-button>
+        <div class="col-12 col-md-4 d-flex justify-content-end">
+          <button mat-flat-button (click)="openConfirmSuccess()">
             <mat-icon>check</mat-icon>
             Confirm success
           </button>
         </div>
-        <div class="col-12 col-md-3 d-flex justify-content-center">
-          <button mat-flat-button>
+
+        <div class="col-12 col-md-4 d-flex justify-content-center">
+          <button mat-flat-button (click)="openConfirmDanger()">
             <mat-icon>error</mat-icon>
             Confirm danger
           </button>
         </div>
-        <div class="col-12 col-md-3 d-flex justify-content-center">
-          <button mat-flat-button>
-            <mat-icon>warning</mat-icon>
-            Confirm warning
-          </button>
-        </div>
-        <div class="col-12 col-md-3 d-flex justify-content-end">
-          <button mat-flat-button color="primary">
+
+        <div class="col-12 col-md-4 d-flex justify-content-start">
+          <button mat-flat-button (click)="openConfirmInfoSuccess()" color="primary">
             <mat-icon>info</mat-icon>
             Confirm info
           </button>
