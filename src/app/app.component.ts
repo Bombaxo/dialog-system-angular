@@ -111,8 +111,8 @@ export class AppComponent {
       title: 'Hey!',
       content: ['Are you sure you want to cancel the appointment?', 'Appointment time: 21:30 of Friday 24.11.21'],
       primaryButton: {
-        label: 'Ok',
-        color: 'danger',
+        label: 'Delete',
+        color: 'warn',
         action: 'book-cancelled'
       },
       secondaryButton: {
@@ -183,12 +183,13 @@ export class AppComponent {
     this.dialogService.open(dialogConfig);
   }
 
+
   /*********************** 
    *  Alerts secion
    *********************** */
 
   openCustomDialog() {
-    const dialogContent: DialogContent = {
+    /* const dialogContent: DialogContent = {
       title: 'Hey!',
       content: ['You already have booked this appointment'],
       primaryButton: {
@@ -201,6 +202,6 @@ export class AppComponent {
       dialogContent: dialogContent
     };
 
-    this.dialogService.open(dialogConfig);
+    this.dialogService.open(dialogConfig); */
   }
 }
