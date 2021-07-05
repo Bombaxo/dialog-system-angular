@@ -1,10 +1,9 @@
 <div class="dialog" [ngSwitch]="templateType">
     <button *ngIf="showCloseIcon"
             mat-dialog-close
-            tw-link-button
-            color="primary"
-            data-test="test-dialog-close">
-        <i nz-icon nzType="close" nzTheme="outline"></i>
+            mat-button
+            color="primary">
+        <mat-icon>close</mat-icon>
     </button>
 
     <!-- component -->
@@ -21,6 +20,7 @@
         </ui-dialog-message>
     </ng-container>
 
+    <!-- inner message -->
     <div class="dialog__confirm"
         [ngClass]="{ 'dialog__confirm--open': showConfirmBox }"
         data-test="test-dialog-confirm-inside">

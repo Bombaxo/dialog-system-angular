@@ -8,10 +8,12 @@
     overflow: hidden;
     & > button {
         position: absolute;
-        right: -8px;
-        top: 6px;
+        right: -14px;
+        top: 1px;
         z-index: 500000;
-        font-size: 15px !important;
+        mat-icon{
+            font-size: 18px;
+        }
     }
     &__confirm {
         position: absolute;
