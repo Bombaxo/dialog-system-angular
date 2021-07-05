@@ -21,7 +21,7 @@
                     mat-stroked-button
                     [class]="dialogContent?.secondaryButton?.size || 'md'"
                     [color]="dialogContent?.secondaryButton?.color || 'primary'"
-                    (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action })"
+                    (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action || 'close-dialog' })"
                     data-test="test-dialog-secondary-btn">
                 {{ dialogContent?.secondaryButton?.label }}
             </button>

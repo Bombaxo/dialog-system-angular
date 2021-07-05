@@ -75,13 +75,13 @@
       <h1>Components injection</h1>
       <section class="row">
         <div class="col-12 col-md-6 d-flex justify-content-end">
-          <button mat-flat-button color="primary">
+          <button mat-flat-button (click)="openFormDialog()" color="primary">
             <mat-icon>view_list</mat-icon>
             Open Form
           </button>
         </div>
         <div class="col-12 col-md-6 d-flex justify-content-start">
-          <button mat-flat-button color="primary">
+          <button mat-flat-button (click)="openReportDialog()" color="primary">
             <mat-icon>feed</mat-icon>
             Open Report
           </button>
@@ -116,7 +116,7 @@
         </div>
       </section>
 
-      <h1>Custom verlaoy</h1>
+      <h1>Custom overlay</h1>
       <section class="row">
         <div class="d-flex justify-content-center col-12">
           <button mat-flat-button>

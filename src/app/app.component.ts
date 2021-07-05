@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { DialogService } from './shared/services/dialog.service';
 import { DialogContent, DialogResponse, DialogConfig } from './shared/interfaces/dialog.interface';
 import { ExampleFormComponent } from './shared/components/example-form/example-form.component';
+import { ExampleReportComponent } from './shared/components/example-report/example-report.component';
 
 @Component({
   selector: 'app-root',
@@ -171,6 +172,23 @@ export class AppComponent {
           data: {
               param: 'data',
               component: ExampleFormComponent,
+          },
+      },
+  };
+
+    this.dialogService.open(dialogConfig);
+  }
+
+  openReportDialog() {
+    const dialogConfig: DialogConfig = {
+      showCloseIcon: true,
+      templateType: 'component',
+      matDialogConfig: {
+          panelClass: ['tx-dialog', 'tx-dialog__mob'],
+          width: '300px',
+          data: {
+              param: 'data',
+              component: ExampleReportComponent,
           },
       },
   };
