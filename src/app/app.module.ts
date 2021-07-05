@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './shared/material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +11,7 @@ import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { DialogMessageComponent } from './shared/components/dialog/dialog-message/dialog-message.component';
 import { ExampleFormComponent } from './shared/components/example-form/example-form.component';
 import { ExampleReportComponent } from './shared/components/example-report/example-report.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ExampleAvailableTimeComponent } from './shared/components/example-available-time/example-available-time.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DialogComponent,
     DialogMessageComponent,
     ExampleFormComponent,
-    ExampleReportComponent
+    ExampleReportComponent,
+    ExampleAvailableTimeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
     ExampleFormComponent,
-    ExampleReportComponent
+    ExampleReportComponent,
+    ExampleAvailableTimeComponent
   ]
 })
 export class AppModule { }

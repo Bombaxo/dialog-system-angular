@@ -90,26 +90,22 @@
 
       <h1>Dialog confirm inside dialog</h1>
       <section class="row">
-        <div class="col-12 col-md-3">
-          <button mat-flat-button>
+        <div class="col-12 col-md-4 d-flex justify-content-end">
+          <button mat-flat-button (click)="openAvailabilitiesDialog('success')">
             <mat-icon>check</mat-icon>
             Inner success
           </button>
         </div>
-        <div class="col-12 col-md-3 d-flex justify-content-center">
-          <button mat-flat-button>
+        
+        <div class="col-12 col-md-4 d-flex justify-content-center">
+          <button mat-flat-button (click)="openAvailabilitiesDialog('error')">
             <mat-icon>error</mat-icon>
             Inner danger
           </button>
         </div>
-        <div class="col-12 col-md-3 d-flex justify-content-center">
-          <button mat-flat-button>
-            <mat-icon>warning</mat-icon>
-            Inner warning
-          </button>
-        </div>
-        <div class="col-12 col-md-3 d-flex justify-content-end">
-          <button mat-flat-button color="primary">
+
+        <div class="col-12 col-md-4 d-flex justify-content-start">
+          <button mat-flat-button (click)="openAvailabilitiesDialog('info')" color="primary">
             <mat-icon>info</mat-icon>
             Inner info
           </button>

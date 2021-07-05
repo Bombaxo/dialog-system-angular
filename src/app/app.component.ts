@@ -4,6 +4,7 @@ import { DialogService } from './shared/services/dialog.service';
 import { DialogContent, DialogResponse, DialogConfig } from './shared/interfaces/dialog.interface';
 import { ExampleFormComponent } from './shared/components/example-form/example-form.component';
 import { ExampleReportComponent } from './shared/components/example-report/example-report.component';
+import { ExampleAvailableTimeComponent } from './shared/components/example-available-time/example-available-time.component';
 
 @Component({
   selector: 'app-root',
@@ -86,7 +87,7 @@ export class AppComponent {
       content: ['Do you want to confirm the appointment?', 'Appointment time: 21:30 of Friday 24.11.21'],
       primaryButton: {
         label: 'Confirm',
-        color: 'primary',
+        color: 'success',
         action: 'book-confirmed'
       },
       secondaryButton: {
@@ -167,14 +168,14 @@ export class AppComponent {
       showCloseIcon: true,
       templateType: 'component',
       matDialogConfig: {
-          panelClass: ['tx-dialog', 'tx-dialog__mob'],
-          width: '300px',
-          data: {
-              param: 'data',
-              component: ExampleFormComponent,
-          },
+        panelClass: ['tx-dialog', 'tx-dialog__mob'],
+        width: '300px',
+        data: {
+          param: 'data',
+          component: ExampleFormComponent,
+        },
       },
-  };
+    };
 
     this.dialogService.open(dialogConfig);
   }
@@ -184,37 +185,42 @@ export class AppComponent {
       showCloseIcon: true,
       templateType: 'component',
       matDialogConfig: {
-          panelClass: ['tx-dialog', 'tx-dialog__mob'],
-          width: '300px',
-          data: {
-              param: 'data',
-              component: ExampleReportComponent,
-          },
+        panelClass: ['tx-dialog', 'tx-dialog__mob'],
+        width: '300px',
+        data: {
+          param: 'data',
+          component: ExampleReportComponent,
+        },
       },
-  };
+    };
+
+    this.dialogService.open(dialogConfig);
+  }
+
+  openAvailabilitiesDialog(type: string) {
+    const dialogConfig: DialogConfig = {
+      showCloseIcon: true,
+      templateType: 'component',
+      matDialogConfig: {
+        panelClass: ['tx-dialog', 'tx-dialog__mob'],
+        width: '500px',
+        height: '400px',
+        data: {
+          type,
+          availableTimes: ['08:00', '08:15', '09:30', '10:00', '12:00', '12:15', '12:45', '13:00', '14:00'],
+          component: ExampleAvailableTimeComponent,
+        },
+      },
+    };
 
     this.dialogService.open(dialogConfig);
   }
 
 
   /*********************** 
-   *  Alerts secion
+   *  Custom overlay secion
    *********************** */
 
   openCustomDialog() {
-    /* const dialogContent: DialogContent = {
-      title: 'Hey!',
-      content: ['You already have booked this appointment'],
-      primaryButton: {
-        label: 'Ok'
-      }
-    };
-
-    const dialogConfig: DialogConfig = {
-      templateType: 'message',
-      dialogContent: dialogContent
-    };
-
-    this.dialogService.open(dialogConfig); */
   }
 }
