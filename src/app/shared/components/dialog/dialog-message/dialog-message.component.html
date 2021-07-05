@@ -17,7 +17,7 @@
         </div>
 
         <mat-dialog-actions>
-            <button *ngIf="dialogContent?.secondaryButton"
+            <button *ngIf="dialogContent?.secondaryButton?.label"
                     mat-stroked-button
                     [class]="dialogContent?.secondaryButton?.size || 'md'"
                     [color]="dialogContent?.secondaryButton?.color || 'primary'"
