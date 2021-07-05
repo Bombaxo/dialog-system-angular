@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { DialogService } from './shared/services/dialog.service';
 import { DialogContent, DialogResponse, DialogConfig } from './shared/interfaces/dialog.interface';
+import { ExampleFormComponent } from './shared/components/example-form/example-form.component';
 
 @Component({
   selector: 'app-root',
@@ -100,9 +101,7 @@ export class AppComponent {
     this.dialogService.open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        if (response?.action === 'book-confirmed') {
-          this.response = response?.action;
-        }
+        this.response = response?.action;
       });;
   }
 
@@ -128,9 +127,7 @@ export class AppComponent {
     this.dialogService.open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        if (response?.action === 'book-cancelled') {
-          this.response = response?.action;
-        }
+        this.response = response?.action;
       });
   }
 
@@ -155,9 +152,7 @@ export class AppComponent {
     this.dialogService.open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        if (response?.action === 'logout') {
-          this.response = response?.action;
-        }
+        this.response = response?.action;
       });;
   }
 
@@ -167,18 +162,18 @@ export class AppComponent {
    *********************** */
 
   openFormDialog() {
-    const dialogContent: DialogContent = {
-      title: 'Hey!',
-      content: ['You already have booked this appointment'],
-      primaryButton: {
-        label: 'Ok'
-      }
-    };
-
     const dialogConfig: DialogConfig = {
-      templateType: 'message',
-      dialogContent: dialogContent
-    };
+      showCloseIcon: true,
+      templateType: 'component',
+      matDialogConfig: {
+          panelClass: ['tx-dialog', 'tx-dialog__mob'],
+          width: '300px',
+          data: {
+              param: 'data',
+              component: ExampleFormComponent,
+          },
+      },
+  };
 
     this.dialogService.open(dialogConfig);
   }
