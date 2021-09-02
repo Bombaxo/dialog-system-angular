@@ -37,3 +37,13 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
+/************************************* 
+        MATERIAL OVERWRITES 
+*************************************/
+
+.mat-dialog-container{
+    padding: 0 !important;
+    border-radius: 10px !important;
+}
