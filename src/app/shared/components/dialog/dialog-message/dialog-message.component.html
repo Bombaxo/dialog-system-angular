@@ -6,7 +6,7 @@
             data-test="test-dialog-img" />
         <h2 *ngIf="dialogContent?.title"
             data-test="test-dialog-title">{{ dialogContent?.title }}</h2>
-    </div>fasdf
+    </div>
 
     <mat-dialog-content class="dialog-message__content">
 
@@ -18,7 +18,7 @@
 
         <mat-dialog-actions>
             <button *ngIf="dialogContent?.secondaryButton?.label"
-                    mat-stroked-button
+                    mat-button
                     [class]="dialogContent?.secondaryButton?.size || 'md'"
                     [color]="dialogContent?.secondaryButton?.color || 'primary'"
                     (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action || 'close-dialog' })"
