@@ -55,7 +55,7 @@ export class ExampleAvailableTimeComponent {
       content: [message],
       primaryButton: {
         label: labelPrimary,
-        action: action,
+        action,
       },
       secondaryButton: {
         label: this.data?.type !== 'info' ? 'Abort' : null
@@ -63,8 +63,8 @@ export class ExampleAvailableTimeComponent {
     };
 
     this.dialogService.openInnerConfirm(dialogContent).subscribe((response: DialogResponse) => {
-      if (action && response?.action === action) {
-        this.dialogService.close({ action: '' });
+      if (action) {
+        this.dialogService.close({ action });
         console.log('returned: ', response?.action);
       }
     });

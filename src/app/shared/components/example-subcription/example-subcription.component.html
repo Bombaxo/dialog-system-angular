@@ -1,1 +1,10 @@
-<p>example-subcription works!</p>
+<h2 mat-dialog-title>You are note premium</h2>
+
+<mat-dialog-content class="text-align-center">
+    <mat-icon class="mb-3">lock</mat-icon>
+    <p>In order to see this content you need to subscribe</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button (click)="goPremium()" color="primary"><mat-icon>military_tech</mat-icon>Subscribe forever</button>
+</mat-dialog-actions>

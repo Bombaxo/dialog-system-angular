@@ -15,6 +15,7 @@ import {
 import { ExampleFormComponent } from "./shared/components/example-form/example-form.component";
 import { ExampleReportComponent } from "./shared/components/example-report/example-report.component";
 import { ExampleAvailableTimeComponent } from "./shared/components/example-available-time/example-available-time.component";
+import { ExampleSubcriptionComponent } from './shared/components/example-subcription/example-subcription.component';
 
 @Component({
   selector: "app-root",
@@ -195,7 +196,7 @@ export class AppComponent implements AfterViewInit {
       showCloseIcon: true,
       templateType: "component",
       matDialogConfig: {
-        panelClass: ["dialog", "tx-dialog__full-screen"],
+        panelClass: ["dialog", "dialog__full-screen"],
         width: "300px",
         data: {
           param: "data",
@@ -212,7 +213,7 @@ export class AppComponent implements AfterViewInit {
       showCloseIcon: true,
       templateType: "component",
       matDialogConfig: {
-        panelClass: ["dialog", "tx-dialog__full-screen"],
+        panelClass: ["dialog", "dialog__full-screen"],
         width: "300px",
         data: {
           param: "data",
@@ -229,7 +230,7 @@ export class AppComponent implements AfterViewInit {
       showCloseIcon: true,
       templateType: "component",
       matDialogConfig: {
-        panelClass: ["dialog", "tx-dialog__full-screen"],
+        panelClass: ["dialog", "dialog__full-screen"],
         width: "500px",
         height: "400px",
         data: {
@@ -259,25 +260,14 @@ export class AppComponent implements AfterViewInit {
 
   openFreemiunCustomDialog() {
     const dialogConfig: DialogConfig = {
-      showCloseIcon: true,
       backDropBlur: true,
       backDropCustomElement: this.renderer,
       templateType: "component",
       matDialogConfig: {
-        panelClass: ["dialog", "tx-dialog__full-screen"],
+        panelClass: ["dialog", "dialog__full-screen"],
+        disableClose: true,
         data: {
-          availableTimes: [
-            "08:00",
-            "08:15",
-            "09:30",
-            "10:00",
-            "12:00",
-            "12:15",
-            "12:45",
-            "13:00",
-            "14:00",
-          ],
-          component: ExampleAvailableTimeComponent,
+          component: ExampleSubcriptionComponent,
         },
       },
     };
@@ -296,10 +286,11 @@ export class AppComponent implements AfterViewInit {
       backDropCustomElement: this.renderer,
       templateType: "component",
       matDialogConfig: {
-        panelClass: ["dialog", "tx-dialog__full-screen"],
+        panelClass: ["dialog", "dialog__full-screen"],
         width: "500px",
         height: "400px",
         data: {
+          type: 'success',
           availableTimes: [
             "08:00",
             "08:15",
