@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { DynamicMatDialogModule } from './shared/dynamic-overlay-container/dynamic-overlay.module';
 import { MaterialModule } from './shared/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,12 +28,14 @@ import { ExampleAvailableTimeComponent } from './shared/components/example-avail
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    DynamicMatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
+    DialogComponent,
     ExampleFormComponent,
     ExampleReportComponent,
     ExampleAvailableTimeComponent
