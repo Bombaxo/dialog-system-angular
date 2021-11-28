@@ -3,7 +3,6 @@ import {
   ViewChild,
   ElementRef,
   Renderer2,
-  AfterViewInit,
 } from "@angular/core";
 
 import { DialogService } from "./shared/services/dialog.service";
@@ -15,16 +14,18 @@ import {
 import { ExampleFormComponent } from "./shared/components/example-form/example-form.component";
 import { ExampleReportComponent } from "./shared/components/example-report/example-report.component";
 import { ExampleAvailableTimeComponent } from "./shared/components/example-available-time/example-available-time.component";
-import { ExampleSubcriptionComponent } from './shared/components/example-subcription/example-subcription.component';
+import { ExampleSubcriptionComponent } from "./shared/components/example-subcription/example-subcription.component";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
-export class AppComponent implements AfterViewInit {
-  @ViewChild("overlayCustomDialog", { static: false })
-  overlayCustomDialog: ElementRef;
+export class AppComponent {
+  @ViewChild("overlayCustomDialogMain", { static: false })
+  overlayCustomDialogMain: ElementRef; // main
+  @ViewChild("overlayCustomDialogDiv", { static: false })
+  overlayCustomDialogDiv: ElementRef; // div
 
   response = "";
 
@@ -33,10 +34,6 @@ export class AppComponent implements AfterViewInit {
     private renderer: Renderer2
   ) {}
 
-  ngAfterViewInit() {
-    // Pass template reference to service for the overlay scope
-    this.dialogService.scrollContainerRef = this.overlayCustomDialog;
-  }
 
   /***********************
    *  Alerts secion
@@ -259,6 +256,8 @@ export class AppComponent implements AfterViewInit {
    *********************** */
 
   openFreemiunCustomDialog() {
+    this.dialogService.scrollContainerRef = this.overlayCustomDialogMain;
+
     const dialogConfig: DialogConfig = {
       backDropBlur: true,
       backDropCustomElement: this.renderer,
@@ -281,6 +280,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   openAvailabilitiesCustomDialog() {
+    this.dialogService.scrollContainerRef = this.overlayCustomDialogMain;
+
     const dialogConfig: DialogConfig = {
       showCloseIcon: true,
       backDropCustomElement: this.renderer,
@@ -290,7 +291,7 @@ export class AppComponent implements AfterViewInit {
         width: "500px",
         height: "400px",
         data: {
-          type: 'success',
+          type: "success",
           availableTimes: [
             "08:00",
             "08:15",
@@ -316,6 +317,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   openMessageCustomDialog() {
+    this.dialogService.scrollContainerRef = this.overlayCustomDialogMain;
+
     const dialogContent: DialogContent = {
       title: "Logout",
       content: ["Do you want to logout from your account?"],
@@ -329,10 +332,9 @@ export class AppComponent implements AfterViewInit {
     };
 
     const dialogConfig: DialogConfig = {
-      showCloseIcon: true,
       backDropCustomElement: this.renderer,
       templateType: "message",
-      dialogContent: dialogContent
+      dialogContent: dialogContent,
     };
 
     this.dialogService
@@ -340,6 +342,41 @@ export class AppComponent implements AfterViewInit {
       .afterClosed()
       .subscribe((response: DialogResponse) => {
         this.response = response?.action;
+      });
+  }
+
+  openMessageBlockedCustomDialog() {
+    this.dialogService.scrollContainerRef = this.overlayCustomDialogDiv;
+
+    const dialogContent: DialogContent = {
+      title: "Content locked",
+      content: ["You need to be premium to use this buttons"],
+      primaryButton: {
+        label: "Go premium",
+        action: "go-premium",
+      },
+      secondaryButton: {
+        label: "No thanks",
+      },
+    };
+
+    const dialogConfig: DialogConfig = {
+      backDropCustomElement: this.renderer,
+      templateType: "message",
+      dialogContent: dialogContent,
+      matDialogConfig: {
+        disableClose: true,
+      } 
+    };
+
+    this.dialogService
+      .open(dialogConfig)
+      .afterClosed()
+      .subscribe((response: DialogResponse) => {
+        this.response = response?.action;
+        if (response?.action === 'go-premium') {
+          this.openFreemiunCustomDialog();
+        }
       });
   }
 }
