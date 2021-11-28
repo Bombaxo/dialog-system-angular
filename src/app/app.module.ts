@@ -13,6 +13,7 @@ import { DialogMessageComponent } from './shared/components/dialog/dialog-messag
 import { ExampleFormComponent } from './shared/components/example-form/example-form.component';
 import { ExampleReportComponent } from './shared/components/example-report/example-report.component';
 import { ExampleAvailableTimeComponent } from './shared/components/example-available-time/example-available-time.component';
+import { ExampleSubcriptionComponent } from './shared/components/example-subcription/example-subcription.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ExampleAvailableTimeComponent } from './shared/components/example-avail
     DialogMessageComponent,
     ExampleFormComponent,
     ExampleReportComponent,
-    ExampleAvailableTimeComponent
+    ExampleAvailableTimeComponent,
+    ExampleSubcriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ExampleAvailableTimeComponent } from './shared/components/example-avail
     DialogComponent,
     ExampleFormComponent,
     ExampleReportComponent,
-    ExampleAvailableTimeComponent
+    ExampleAvailableTimeComponent,
+    ExampleSubcriptionComponent
   ]
 })
 export class AppModule { }
