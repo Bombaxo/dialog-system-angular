@@ -340,10 +340,8 @@ export class AppComponent implements AfterViewInit {
     const dialogConfig: DialogConfig = {
       showCloseIcon: true,
       backDropCustomElement: this.renderer,
-      templateType: "component",
-      matDialogConfig: {
-        panelClass: ["dialog", "tx-dialog__full-screen"],
-      },
+      templateType: "message",
+      dialogContent: dialogContent
     };
 
     this.dialogService

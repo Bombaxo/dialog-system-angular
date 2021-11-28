@@ -49,27 +49,21 @@ export class DialogService {
         };
 
         if (dialogConfig.backDropCustomElement) {
-
-            this.openCustomDialog(
-                dialogOptions.matDialogConfig.data.component,
-                dialogConfig.backDropCustomElement,
-                dialogOptions.matDialogConfig
-            );
+            this.currentRenderer = dialogConfig.backDropCustomElement;
+            this.customDialog.setContainerElement(this.scrollContainerRef.nativeElement, dialogConfig.backDropCustomElement);
+            this.dialogRef = this.customDialog.open(DialogComponent, dialogOptions?.matDialogConfig);
+            this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
+            this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
+            this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
         } else {
             this.dialogRef = this.dialog.open(DialogComponent, dialogOptions.matDialogConfig);
             this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
             this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
             this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
 
-            return this.dialogRef;
         }
-
-    }
-
-    openCustomDialog(component: any, renderer: Renderer2, matDialogConfig: MatDialogConfig): void {
-        this.currentRenderer = renderer;
-        this.customDialog.setContainerElement(this.scrollContainerRef.nativeElement, renderer);
-        this.customDialog.open(component, matDialogConfig);
+        
+        return this.dialogRef;
     }
 
     openInnerConfirm(dialogContent: DialogContent): Observable<DialogResponse> {
