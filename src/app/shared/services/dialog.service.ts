@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Injectable, ElementRef, Renderer2 } from '@angular/core';
+import { MatDialog, MatDialogConfig,  MatDialogRef } from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
 
 import { DialogComponent } from '../components/dialog/dialog.component';
 import { DialogConfig, DialogContent, DialogResponse } from '../interfaces/dialog.interface';
+import { DynamicMatDialog } from '../dynamic-overlay-container/dynamic-dialog';
 
 @Injectable({
     providedIn: 'root',
@@ -12,6 +13,9 @@ import { DialogConfig, DialogContent, DialogResponse } from '../interfaces/dialo
 export class DialogService {
 
     dialogRef: MatDialogRef<DialogComponent>;
+    currentRenderer: Renderer2;
+    scrollContainerRef: ElementRef;
+
     private defaultDialog: DialogConfig = {
         showCloseIcon: false,
         templateType: 'component',
@@ -28,9 +32,13 @@ export class DialogService {
 
     constructor(
         private dialog: MatDialog,
+        private customDialog: DynamicMatDialog
     ) { }
 
     open(dialogConfig: DialogConfig): MatDialogRef<DialogComponent> {
+        this.defaultDialog.matDialogConfig.backdropClass = dialogConfig.backDropBlur
+            ? 'dialog__overlay--blur'
+                : '';
         const dialogOptions = {
             ...this.defaultDialog,
             ...dialogConfig,
@@ -40,12 +48,28 @@ export class DialogService {
             }
         };
 
-        this.dialogRef = this.dialog.open(DialogComponent, dialogOptions.matDialogConfig);
-        this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
-        this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
-        this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
+        if (dialogConfig.backDropCustomElement) {
 
-        return this.dialogRef;
+            this.openCustomDialog(
+                dialogOptions.matDialogConfig.data.component,
+                dialogConfig.backDropCustomElement,
+                dialogOptions.matDialogConfig
+            );
+        } else {
+            this.dialogRef = this.dialog.open(DialogComponent, dialogOptions.matDialogConfig);
+            this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
+            this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
+            this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
+
+            return this.dialogRef;
+        }
+
+    }
+
+    openCustomDialog(component: any, renderer: Renderer2, matDialogConfig: MatDialogConfig): void {
+        this.currentRenderer = renderer;
+        this.customDialog.setContainerElement(this.scrollContainerRef.nativeElement, renderer);
+        this.customDialog.open(component, matDialogConfig);
     }
 
     openInnerConfirm(dialogContent: DialogContent): Observable<DialogResponse> {
