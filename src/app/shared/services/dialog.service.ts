@@ -1,5 +1,5 @@
 import { Injectable, ElementRef, Renderer2 } from '@angular/core';
-import { MatDialog, MatDialogConfig,  MatDialogRef } from '@angular/material/dialog';
+import { MatDialog,  MatDialogRef } from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
 
@@ -20,7 +20,7 @@ export class DialogService {
         showCloseIcon: false,
         templateType: 'component',
         matDialogConfig: {
-            panelClass: 'ui-dialog',
+            panelClass: 'dialog',
             disableClose: false,
             autoFocus: false,
             hasBackdrop: true,
@@ -39,6 +39,7 @@ export class DialogService {
         this.defaultDialog.matDialogConfig.backdropClass = dialogConfig.backDropBlur
             ? 'dialog__overlay--blur'
                 : '';
+
         const dialogOptions = {
             ...this.defaultDialog,
             ...dialogConfig,
@@ -52,16 +53,12 @@ export class DialogService {
             this.currentRenderer = dialogConfig.backDropCustomElement;
             this.customDialog.setContainerElement(this.scrollContainerRef.nativeElement, dialogConfig.backDropCustomElement);
             this.dialogRef = this.customDialog.open(DialogComponent, dialogOptions?.matDialogConfig);
-            this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
-            this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
-            this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
         } else {
             this.dialogRef = this.dialog.open(DialogComponent, dialogOptions.matDialogConfig);
-            this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
-            this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
-            this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
-
         }
+        this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
+        this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
+        this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
         
         return this.dialogRef;
     }

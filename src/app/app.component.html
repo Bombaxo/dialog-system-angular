@@ -33,7 +33,7 @@
 
     <main #overlayCustomDialogMain>
 
-      <h3>Response of current dialog action --> {{ response }}</h3>
+      <h3>Response of current dialog action --> <b>{{ response }}</b></h3>
 
       <div #overlayCustomDialogDiv>
         <section class="row">
@@ -52,7 +52,7 @@
             </button>
           </div>
           <div class="col-12 col-md-4 d-flex justify-content-start">
-            <button mat-flat-button color="danger" (click)="openAlertDanger()">
+            <button mat-flat-button color="warn" (click)="openAlertDanger()">
               <mat-icon>report</mat-icon>
               Alert danger
             </button>
@@ -63,14 +63,14 @@
           <h2>Confirmation actions</h2>
 
           <div class="col-12 col-md-4 d-flex justify-content-end">
-            <button mat-flat-button (click)="openConfirmSuccess()">
+            <button mat-flat-button color="success" (click)="openConfirmSuccess()">
               <mat-icon>check</mat-icon>
               Confirm success
             </button>
           </div>
 
           <div class="col-12 col-md-4 d-flex justify-content-center">
-            <button mat-flat-button color="danger" (click)="openConfirmDanger()">
+            <button mat-flat-button color="warn" (click)="openConfirmDanger()">
               <mat-icon>report</mat-icon>
               Confirm danger
             </button>
@@ -79,7 +79,7 @@
           <div class="col-12 col-md-4 d-flex justify-content-start">
             <button
               mat-flat-button
-              (click)="openConfirmInfoSuccess()"
+              (click)="openConfirmEvent()"
               color="primary"
             >
               <mat-icon>info</mat-icon>
@@ -109,14 +109,14 @@
           <h2>Dialog confirm inside dialog</h2>
 
           <div class="col-12 col-md-4 d-flex justify-content-end">
-            <button mat-flat-button (click)="openAvailabilitiesDialog('success')">
+            <button mat-flat-button color="success" (click)="openTimeSlotInnerDialog('success')">
               <mat-icon>check</mat-icon>
               Inner success
             </button>
           </div>
 
           <div class="col-12 col-md-4 d-flex justify-content-center">
-            <button mat-flat-button (click)="openAvailabilitiesDialog('error')">
+            <button mat-flat-button color="warn" (click)="openTimeSlotInnerDialog('error')">
               <mat-icon>report</mat-icon>
               Inner danger
             </button>
@@ -125,7 +125,7 @@
           <div class="col-12 col-md-4 d-flex justify-content-start">
             <button
               mat-flat-button
-              (click)="openAvailabilitiesDialog('info')"
+              (click)="openTimeSlotInnerDialog('info')"
               color="primary"
             >
               <mat-icon>info</mat-icon>
@@ -137,28 +137,28 @@
         <section class="row">
           <h2>Custom dialog overlay </h2>
           <div class="col-12 col-md-3 d-flex justify-content-end">
-            <button mat-flat-button (click)="openFreemiunCustomDialog()">
+            <button mat-flat-button color="primary" (click)="openFreemiunCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Fremiun blury
             </button>
           </div>
 
           <div class="col-12 col-md-3 d-flex justify-content-center">
-            <button mat-flat-button (click)="openAvailabilitiesCustomDialog()">
+            <button mat-flat-button color="primary" (click)="openAvailabilitiesCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Availabilities
             </button>
           </div>
 
           <div class="col-12 col-md-3 d-flex justify-content-center">
-            <button mat-flat-button (click)="openMessageCustomDialog()">
+            <button mat-flat-button color="primary" (click)="openMessageCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Message 
             </button>
           </div>
           
           <div class="col-12 col-md-3 d-flex justify-content-start">
-            <button mat-flat-button (click)="openMessageBlockedCustomDialog()">
+            <button mat-flat-button color="primary" (click)="openMessageBlockedCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Message blury
             </button>

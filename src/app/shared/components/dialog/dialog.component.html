@@ -22,11 +22,9 @@
 
     <!-- inner message -->
     <div class="dialog__confirm"
-        [ngClass]="{ 'dialog__confirm--open': showConfirmBox }"
-        data-test="test-dialog-confirm-inside">
+        [ngClass]="{ 'dialog__confirm--open': showConfirmBox }">
         <div class="dialog__innner-overlay"
-            (click)="dialogCloseConfirmInside({ action: 'close-dialog' })"
-            data-test="test-dialog-inside-overlay"></div>
+            (click)="dialogCloseConfirmInside({ action: 'close-dialog' })"></div>
         <div class="dialog__confirm-box"
             [ngClass]="{'dialog__confirm-box--open': showConfirmBox}">
             <ui-dialog-message

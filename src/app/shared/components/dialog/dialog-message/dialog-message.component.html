@@ -1,11 +1,9 @@
 
-<div class="dialog-message" data-test="test-dialog-message">
+<div class="dialog-message">
     <div class="dialog-message__header">
         <img *ngIf="dialogContent?.image"
-            [src]="'/assets/imgs/' + dialogContent?.image"
-            data-test="test-dialog-img" />
-        <h2 *ngIf="dialogContent?.title"
-            data-test="test-dialog-title">{{ dialogContent?.title }}</h2>
+            [src]="'/assets/imgs/' + dialogContent?.image" />
+        <h2 *ngIf="dialogContent?.title">{{ dialogContent?.title }}</h2>
     </div>
 
     <mat-dialog-content class="dialog-message__content">
@@ -21,15 +19,15 @@
                     mat-button
                     [class]="dialogContent?.secondaryButton?.size || 'md'"
                     [color]="dialogContent?.secondaryButton?.color || 'primary'"
-                    (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action || 'close-dialog' })"
-                    data-test="test-dialog-secondary-btn">
+                    (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action || 'close-dialog' })">
+                <mat-icon *ngIf="dialogContent?.secondaryButton?.icon">{{ dialogContent?.secondaryButton?.icon }}</mat-icon>
                 {{ dialogContent?.secondaryButton?.label }}
             </button>
             <button mat-flat-button
                     [class]="dialogContent?.primaryButton?.size || 'md'"
                     [color]="dialogContent?.primaryButton?.color || 'primary'"
-                    (click)="onButtonAction.emit({ action: dialogContent?.primaryButton?.action })"
-                    data-test="test-dialog-primary-btn">
+                    (click)="onButtonAction.emit({ action: dialogContent?.primaryButton?.action })">
+                <mat-icon *ngIf="dialogContent?.primaryButton?.icon">{{ dialogContent?.primaryButton?.icon }}</mat-icon>
                 {{ dialogContent?.primaryButton?.label }}
             </button>
         </mat-dialog-actions>

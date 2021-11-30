@@ -1,9 +1,4 @@
-import {
-  Component,
-  ViewChild,
-  ElementRef,
-  Renderer2,
-} from "@angular/core";
+import { Component, ViewChild, ElementRef, Renderer2 } from "@angular/core";
 
 import { DialogService } from "./shared/services/dialog.service";
 import {
@@ -34,7 +29,6 @@ export class AppComponent {
     private renderer: Renderer2
   ) {}
 
-
   /***********************
    *  Alerts secion
    *********************** */
@@ -45,6 +39,7 @@ export class AppComponent {
       content: ["You already have booked this appointment"],
       primaryButton: {
         label: "Ok",
+        icon: "notifications",
       },
     };
 
@@ -65,7 +60,7 @@ export class AppComponent {
       ],
       primaryButton: {
         label: "Ok",
-        icon: "",
+        icon: "warning",
       },
     };
 
@@ -83,6 +78,8 @@ export class AppComponent {
       content: ["The booking was already cancelled"],
       primaryButton: {
         label: "Ok",
+        icon: "report",
+        color: "warn",
       },
     };
 
@@ -108,10 +105,12 @@ export class AppComponent {
       primaryButton: {
         label: "Confirm",
         color: "success",
+        icon: "check",
         action: "book-confirmed",
       },
       secondaryButton: {
         label: "Cancel",
+        icon: "close",
       },
     };
 
@@ -138,10 +137,12 @@ export class AppComponent {
       primaryButton: {
         label: "Delete",
         color: "warn",
+        icon: "report",
         action: "book-cancelled",
       },
       secondaryButton: {
         label: "Cancel",
+        icon: "close",
       },
     };
 
@@ -158,16 +159,18 @@ export class AppComponent {
       });
   }
 
-  openConfirmInfoSuccess() {
+  openConfirmEvent() {
     const dialogContent: DialogContent = {
       title: "Logout",
       content: ["Do you want to logout from your account?"],
       primaryButton: {
         label: "Logout",
         action: "logout",
+        icon: "logout",
       },
       secondaryButton: {
         label: "Cancel",
+        icon: "close",
       },
     };
 
@@ -222,7 +225,7 @@ export class AppComponent {
     this.dialogService.open(dialogConfig);
   }
 
-  openAvailabilitiesDialog(type: string) {
+  openTimeSlotInnerDialog(type: string) {
     const dialogConfig: DialogConfig = {
       showCloseIcon: true,
       templateType: "component",
@@ -248,7 +251,12 @@ export class AppComponent {
       },
     };
 
-    this.dialogService.open(dialogConfig);
+    this.dialogService
+      .open(dialogConfig)
+      .afterClosed()
+      .subscribe((response: DialogResponse) => {
+        this.response = response?.action;
+      });
   }
 
   /***********************
@@ -366,7 +374,7 @@ export class AppComponent {
       dialogContent: dialogContent,
       matDialogConfig: {
         disableClose: true,
-      } 
+      },
     };
 
     this.dialogService
@@ -374,7 +382,7 @@ export class AppComponent {
       .afterClosed()
       .subscribe((response: DialogResponse) => {
         this.response = response?.action;
-        if (response?.action === 'go-premium') {
+        if (response?.action === "go-premium") {
           this.openFreemiunCustomDialog();
         }
       });
