@@ -48,6 +48,12 @@ body {
     border-radius: 10px !important;
 }
 
+button{
+    mat-icon{
+        transform: scale(.8);
+    }
+}
+
 /************************************* 
             DIALOG
 *************************************/

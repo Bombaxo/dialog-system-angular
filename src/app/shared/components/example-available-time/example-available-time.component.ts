@@ -1,15 +1,18 @@
-import { DialogContent, DialogResponse } from './../../interfaces/dialog.interface';
-import { DialogService } from './../../services/dialog.service';
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject } from "@angular/core";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Button } from "./../../interfaces/button.interface";
+import {
+  DialogContent,
+  DialogResponse,
+} from "./../../interfaces/dialog.interface";
+import { DialogService } from "./../../services/dialog.service";
 
 @Component({
-  selector: 'app-example-available-time',
-  templateUrl: './example-available-time.component.html',
-  styleUrls: ['./example-available-time.component.scss']
+  selector: "app-example-available-time",
+  templateUrl: "./example-available-time.component.html",
+  styleUrls: ["./example-available-time.component.scss"],
 })
 export class ExampleAvailableTimeComponent {
-
   availableTimes: string[];
 
   constructor(
@@ -20,30 +23,46 @@ export class ExampleAvailableTimeComponent {
   }
 
   openConfirmAppointment(time: string) {
-
-    let message = '';
-    let labelPrimary = '';
-    let action = '';
+    let message = "";
+    let buttonConfig: Button = {
+      label: "",
+      action: "",
+      color: "primary",
+      icon: "",
+    };
 
     switch (this.data?.type) {
-      case 'success':
-        console.log('success', time);
+      case "success":
         message = `Do you want to confirm the appointment at ${time}?`;
-        labelPrimary = 'Confirm';
-        action = 'book-confirm';
+        buttonConfig = {
+          label: "Confirm",
+          action: "book-confirm",
+          color: "success",
+          icon: "check",
+        };
+
         break;
 
-      case 'error':
-        console.log('error', time);
+      case "error":
         message = `Do you want to cancel the appointment at ${time}?`;
-        labelPrimary = 'Cancel';
-        action = 'book-cancel';
+        buttonConfig = {
+          label: "Cancel",
+          action: "book-cancel",
+          color: "warn",
+          icon: "report",
+        };
+
         break;
 
-      case 'info':
-        console.log('info', time);
+      case "info":
         message = `Maybe some other info about a wrong action`;
-        labelPrimary = 'Ok';
+        buttonConfig = {
+          label: "Ok",
+          action: "",
+          color: "primary",
+          icon: "",
+        };
+
         break;
 
       default:
@@ -51,23 +70,22 @@ export class ExampleAvailableTimeComponent {
     }
 
     const dialogContent: DialogContent = {
-      title: '',
+      title: "",
       content: [message],
-      primaryButton: {
-        label: labelPrimary,
-        action,
-      },
+      primaryButton: buttonConfig,
       secondaryButton: {
-        label: this.data?.type !== 'info' ? 'Abort' : null
+        label: this.data?.type !== "info" ? "Abort" : null,
+        icon: "close",
       },
     };
 
-    this.dialogService.openInnerConfirm(dialogContent).subscribe((response: DialogResponse) => {
-      if (action) {
-        this.dialogService.close({ action });
-        console.log('returned: ', response?.action);
-      }
-    });
-
+    this.dialogService
+      .openInnerConfirm(dialogContent)
+      .subscribe((response: DialogResponse) => {
+        if (buttonConfig?.action === response?.action) {
+          this.dialogService.close({ action: response?.action });
+          console.log("openInnerConfirm returned: ", response?.action);
+        }
+      });
   }
 }
