@@ -10,10 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { DialogMessageComponent } from './shared/components/dialog/dialog-message/dialog-message.component';
-import { ExampleFormComponent } from './shared/components/example-form/example-form.component';
-import { ExampleReportComponent } from './shared/components/example-report/example-report.component';
-import { ExampleAvailableTimeComponent } from './shared/components/example-available-time/example-available-time.component';
-import { ExampleSubcriptionComponent } from './shared/components/example-subcription/example-subcription.component';
+import { ExampleFormComponent } from './examples/example-form/example-form.component';
+import { ExampleReportComponent } from './examples/example-report/example-report.component';
+import { ExampleAvailableTimeComponent } from './examples/example-available-time/example-available-time.component';
+import { ExampleSubcriptionComponent } from './examples/example-subcription/example-subcription.component';
 
 @NgModule({
   declarations: [

@@ -1,11 +1,11 @@
 import { Component, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { Button } from "./../../interfaces/button.interface";
+import { Button } from "../../shared/interfaces/button.interface";
 import {
   DialogContent,
   DialogResponse,
-} from "./../../interfaces/dialog.interface";
-import { DialogService } from "./../../services/dialog.service";
+} from "../../shared/interfaces/dialog.interface";
+import { DialogService } from "../../shared/services/dialog.service";
 
 @Component({
   selector: "app-example-available-time",

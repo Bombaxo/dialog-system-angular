@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-import { DialogService } from "../../services/dialog.service";
-import {
-  DialogContent,
-  DialogResponse,
-  DialogConfig,
-} from "../../interfaces/dialog.interface";
+import { DialogService } from '../../shared/services/dialog.service';
 
 @Component({
   selector: "app-example-subcription",

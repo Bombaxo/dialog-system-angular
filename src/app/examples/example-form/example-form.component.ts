@@ -1,6 +1,6 @@
-import { DialogService } from './../../services/dialog.service';
+import { DialogService } from '../../shared/services/dialog.service';
 import { Component } from '@angular/core';
-import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-example-form',
