@@ -3,7 +3,7 @@ import { MatDialog,  MatDialogRef } from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
 
-import { DialogComponent } from '../components/dialog/dialog.component';
+import { DialogComponent } from '../dialog/dialog.component';
 import { DialogConfig, DialogContent, DialogResponse } from '../interfaces/dialog.interface';
 import { DynamicMatDialog } from '../dynamic-overlay-container/dynamic-dialog';
 

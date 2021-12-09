@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 
-import { DialogContent, DialogResponse, DialogTemplateType } from '../../interfaces/dialog.interface';
+import { DialogContent, DialogResponse, DialogTemplateType } from '../interfaces/dialog.interface';
 
 @Component({
     selector: 'ui-dialog',

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { DialogContent, DialogResponse } from '../../../interfaces/dialog.interface';
+import { DialogContent, DialogResponse } from '../../interfaces/dialog.interface';
 
 @Component({
     selector: 'ui-dialog-message',
