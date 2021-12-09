@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { DynamicMatDialogModule } from './shared/dynamic-overlay-container/dynamic-overlay.module';
 import { MaterialModule } from './shared/material.module';
-import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
@@ -28,7 +27,6 @@ import { ExampleSubcriptionComponent } from './examples/example-subcription/exam
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
     DynamicMatDialogModule
