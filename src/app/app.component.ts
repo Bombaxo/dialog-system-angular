@@ -60,6 +60,7 @@ export class AppComponent {
       ],
       primaryButton: {
         label: "Ok",
+        color: "warning",
         icon: "warning",
       },
     };
@@ -117,6 +118,9 @@ export class AppComponent {
     const dialogConfig: DialogConfig = {
       templateType: "message",
       dialogContent: dialogContent,
+      matDialogConfig: {
+        disableClose: true,
+      },
     };
 
     this.dialogService
@@ -149,6 +153,9 @@ export class AppComponent {
     const dialogConfig: DialogConfig = {
       templateType: "message",
       dialogContent: dialogContent,
+      matDialogConfig: {
+        disableClose: true,
+      },
     };
 
     this.dialogService
@@ -230,6 +237,7 @@ export class AppComponent {
       showCloseIcon: true,
       templateType: "component",
       matDialogConfig: {
+        disableClose: true,
         panelClass: ["dialog", "dialog__full-screen"],
         width: "500px",
         height: "400px",
@@ -328,14 +336,16 @@ export class AppComponent {
     this.dialogService.scrollContainerRef = this.overlayCustomDialogMain;
 
     const dialogContent: DialogContent = {
-      title: "Logout",
-      content: ["Do you want to logout from your account?"],
+      title: "Main nav",
+      content: ["Do you want to check main nav while deciding blue or red?"],
       primaryButton: {
-        label: "Logout",
-        action: "logout",
+        label: "Red",
+        action: "red",
+        color: "warn",
       },
       secondaryButton: {
-        label: "Cancel",
+        label: "Blue",
+        action: "blue",
       },
     };
 

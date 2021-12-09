@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav" (backdropClick)="sidenav.close()">
+<mat-sidenav-container class="sidenav" autosize="true" (backdropClick)="sidenav.close()">
   <mat-sidenav #sidenav (keydown.escape)="sidenav.close()" disableClose>
     <mat-list>
       <mat-list-item> <mat-icon>menu</mat-icon>Pepper </mat-list-item>
@@ -32,10 +32,9 @@
     </mat-toolbar>
 
     <main #overlayCustomDialogMain>
-
-      <h3>Response of current dialog action --> <b>{{ response }}</b></h3>
-
       <div #overlayCustomDialogDiv>
+        <h3>Response of current dialog action --> <b>{{ response }}</b></h3>
+
         <section class="row">
           <h2>Alerts</h2>
           
@@ -137,28 +136,28 @@
         <section class="row">
           <h2>Custom dialog overlay </h2>
           <div class="col-12 col-md-3 d-flex justify-content-end">
-            <button mat-flat-button color="primary" (click)="openFreemiunCustomDialog()">
+            <button mat-stroked-button color="primary" (click)="openFreemiunCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Fremiun blury
             </button>
           </div>
 
           <div class="col-12 col-md-3 d-flex justify-content-center">
-            <button mat-flat-button color="primary" (click)="openAvailabilitiesCustomDialog()">
+            <button mat-stroked-button color="primary" (click)="openAvailabilitiesCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Availabilities
             </button>
           </div>
 
           <div class="col-12 col-md-3 d-flex justify-content-center">
-            <button mat-flat-button color="primary" (click)="openMessageCustomDialog()">
+            <button mat-stroked-button color="primary" (click)="openMessageCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Message 
             </button>
           </div>
           
           <div class="col-12 col-md-3 d-flex justify-content-start">
-            <button mat-flat-button color="primary" (click)="openMessageBlockedCustomDialog()">
+            <button mat-stroked-button color="primary" (click)="openMessageBlockedCustomDialog()">
               <mat-icon>branding_watermark</mat-icon>
               Message blury
             </button>
