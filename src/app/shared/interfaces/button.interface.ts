@@ -3,6 +3,6 @@ export interface Button {
     icon?: string;
     action?: string;
     class?: string;
-    color?: 'primary' | 'accent' | 'danger' | 'warn'| 'success';
+    color?: string;
     size?: 'sm' | 'md' | 'lg';
 }

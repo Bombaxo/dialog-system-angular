@@ -33,7 +33,6 @@ export class DynamicMatDialog extends MatDialog {
   public setContainerElement(containerElement: HTMLElement, renderer: Renderer2): void {
     // need to apply this styling to make the backdrop with position: fixed styling cover only the containerElement
     renderer.setStyle(containerElement, 'transform', 'translateZ(0)');
-    renderer.setStyle(containerElement, 'overflow', 'hidden');
     this.customOverlay.setContainerElement(containerElement);
   }
 }
