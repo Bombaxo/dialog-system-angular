@@ -25,7 +25,7 @@
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 
-@include angular-material-theme($theming-material-components-theme);
+@include angular-material-theme($theming-material);
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -43,9 +43,23 @@ body {
         MATERIAL OVERWRITES 
 *************************************/
 
+.mat-sidenav-container {
+    overflow: hidden;
+    position: fixed;
+}
+
 .mat-dialog-container{
     padding: 0 !important;
     border-radius: 10px !important;
+}
+
+.mat-success {
+    color: white;
+    background-color: #2dd36f;
+}
+
+.mat-warning {
+    background-color: #ffc409;
 }
 
 button{

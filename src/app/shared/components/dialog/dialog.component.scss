@@ -8,11 +8,12 @@
     overflow: hidden;
     & > button {
         position: absolute;
-        right: -14px;
-        top: 1px;
+        right: -8px;
+        top: 0;
         z-index: 500000;
+        display: flex;
         mat-icon{
-            font-size: 18px;
+            font-size: 24px;
         }
     }
     &__confirm {
