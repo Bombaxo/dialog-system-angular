@@ -10,6 +10,6 @@ export class DialogMessageComponent {
 
     @Input() dialogData: any;
     @Input() dialogContent: DialogContent;
-    @Output() onButtonAction = new EventEmitter<DialogResponse>();
+    @Output() buttonAction = new EventEmitter<DialogResponse>();
 
 }

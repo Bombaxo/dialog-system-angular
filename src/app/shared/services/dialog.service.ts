@@ -1,4 +1,4 @@
-import { Injectable, ElementRef, Renderer2 } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
 import { MatDialog,  MatDialogRef } from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
@@ -13,7 +13,6 @@ import { DynamicMatDialog } from '../dynamic-overlay-container/dynamic-dialog';
 export class DialogService {
 
     dialogRef: MatDialogRef<DialogComponent>;
-    currentRenderer: Renderer2;
     scrollContainerRef: ElementRef;
 
     private defaultDialog: DialogConfig = {
@@ -36,21 +35,17 @@ export class DialogService {
     ) { }
 
     open(dialogConfig: DialogConfig): MatDialogRef<DialogComponent> {
-        this.defaultDialog.matDialogConfig.backdropClass = dialogConfig.backDropBlur
-            ? 'dialog__overlay--blur'
-                : '';
-
         const dialogOptions = {
             ...this.defaultDialog,
             ...dialogConfig,
             matDialogConfig: {
                 ...this.defaultDialog?.matDialogConfig,
-                ...dialogConfig?.matDialogConfig
+                ...dialogConfig?.matDialogConfig,
+                backdropClass: dialogConfig.backDropBlur ? 'dialog__overlay--blur' : ''
             }
         };
 
         if (dialogConfig.backDropCustomElement) {
-            this.currentRenderer = dialogConfig.backDropCustomElement;
             this.customDialog.setContainerElement(this.scrollContainerRef.nativeElement, dialogConfig.backDropCustomElement);
             this.dialogRef = this.customDialog.open(DialogComponent, dialogOptions?.matDialogConfig);
         } else {

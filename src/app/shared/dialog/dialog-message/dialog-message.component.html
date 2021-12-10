@@ -19,14 +19,14 @@
                     mat-button
                     [class]="dialogContent?.secondaryButton?.size || 'md'"
                     [color]="dialogContent?.secondaryButton?.color || 'primary'"
-                    (click)="onButtonAction.emit({ action: dialogContent?.secondaryButton?.action || 'close-dialog' })">
+                    (click)="buttonAction.emit({ action: dialogContent?.secondaryButton?.action || 'close-dialog' })">
                 <mat-icon *ngIf="dialogContent?.secondaryButton?.icon">{{ dialogContent?.secondaryButton?.icon }}</mat-icon>
                 {{ dialogContent?.secondaryButton?.label }}
             </button>
             <button mat-flat-button
                     [class]="dialogContent?.primaryButton?.size || 'md'"
                     [color]="dialogContent?.primaryButton?.color || 'primary'"
-                    (click)="onButtonAction.emit({ action: dialogContent?.primaryButton?.action })">
+                    (click)="buttonAction.emit({ action: dialogContent?.primaryButton?.action })">
                 <mat-icon *ngIf="dialogContent?.primaryButton?.icon">{{ dialogContent?.primaryButton?.icon }}</mat-icon>
                 {{ dialogContent?.primaryButton?.label }}
             </button>

@@ -39,7 +39,7 @@ export class DialogComponent {
         this.showConfirmBox = true;
     }
 
-    dialogCloseConfirmInside(action: DialogResponse): void {
+    closeConfirmInside(action: DialogResponse): void {
         this.confirmInsideResponse.next(action);
         this.confirmInsideResponse.complete();
         this.showConfirmBox = false;

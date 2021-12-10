@@ -16,7 +16,7 @@
         <ui-dialog-message
             [dialogData]="dialogData"
             [dialogContent]="dialogContent"
-            (onButtonAction)="dialogClose($event)">
+            (buttonAction)="dialogClose($event)">
         </ui-dialog-message>
     </ng-container>
 
@@ -24,14 +24,14 @@
     <div class="dialog__confirm"
         [ngClass]="{ 'dialog__confirm--open': showConfirmBox }">
         <div class="dialog__innner-overlay"
-            (click)="dialogCloseConfirmInside({ action: 'close-dialog' })"></div>
+            (click)="closeConfirmInside({ action: 'close-dialog' })"></div>
         <div class="dialog__confirm-box"
             [ngClass]="{'dialog__confirm-box--open': showConfirmBox}">
             <ui-dialog-message
                 *ngIf="showConfirmBox"
                 [dialogData]="dialogConfirmData"
                 [dialogContent]="dialogConfirmContent"
-                (onButtonAction)="dialogCloseConfirmInside($event)">
+                (buttonAction)="closeConfirmInside($event)">
             </ui-dialog-message>
         </div>
     </div>
