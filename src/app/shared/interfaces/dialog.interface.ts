@@ -14,9 +14,10 @@ export interface DialogContent {
 }
 export interface DialogConfig {
     showCloseIcon?: boolean;            // Display right corner dialog close button
+    component?: any;                    // Component instance to inyect inside DialogComponent
+    templateType: DialogTemplateType;   // Set the tempalte to use, inyected component or message
     backDropBlur?: boolean;             // Overlay should be blury (css selector)
     backDropCustomElement?: Renderer2,  // Renderer of the element for the targeted overlay
-    templateType: DialogTemplateType;   // Set the tempalte to use, inyected component or message
     matDialogConfig?: MatDialogConfig;  // Material dialog options
     dialogContent?: DialogContent;      // Message content for alerts and confirm actions dialogs
 }

@@ -53,6 +53,7 @@ export class DialogService {
         }
         this.dialogRef.componentInstance.showCloseIcon = dialogOptions.showCloseIcon;
         this.dialogRef.componentInstance.templateType = dialogOptions.templateType;
+        this.dialogRef.componentInstance.component = dialogOptions.component;
         this.dialogRef.componentInstance.dialogContent = dialogOptions.dialogContent;
         
         return this.dialogRef;

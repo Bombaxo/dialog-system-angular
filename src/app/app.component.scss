@@ -14,7 +14,7 @@
 
 main {
     width: 100%;
-    height: calc(100% - 50px);
+    height: calc(100% - 64px); // 64px from header height
     display: flex;
     flex: 1;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@ main {
         width: 100%;
         text-align: center;
         font-size: 18px;
-        margin: 8px 0;
+        margin: 16px 0;
     }
     section {
         width: 100%;

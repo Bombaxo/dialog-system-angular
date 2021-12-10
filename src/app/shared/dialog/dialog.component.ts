@@ -11,7 +11,7 @@ import { DialogContent, DialogResponse, DialogTemplateType } from '../interfaces
 })
 export class DialogComponent {
     showCloseIcon: boolean;
-    dialogData: any;
+    component: any;
     dialogConfirmData: any;
     dialogContent: DialogContent;
     dialogConfirmContent: DialogContent;
@@ -23,9 +23,7 @@ export class DialogComponent {
     constructor(
         private dialogRef: MatDialogRef<DialogComponent>,
         @Inject(MAT_DIALOG_DATA) data       // property from matDialogConfig from material
-    ) {
-        this.dialogData = data;
-    }
+    ) {}
 
     dialogClose(response: DialogResponse): void {
         this.dialogRef.close(response);

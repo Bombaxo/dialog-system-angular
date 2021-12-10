@@ -33,7 +33,11 @@
 
     <main #overlayCustomDialogMain>
       <div #overlayCustomDialogDiv>
-        <h3>Response of current dialog action --> <b>{{ response }}</b></h3>
+
+        <div class="d-flex flex-column align-items-center">
+          <h3>Response of current dialog action</h3>
+          <h3><b class="my-2">{{ response }}</b></h3>
+        </div>
 
         <section class="row">
           <h2>Alerts</h2>

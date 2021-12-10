@@ -201,13 +201,13 @@ export class AppComponent {
   openFormDialog() {
     const dialogConfig: DialogConfig = {
       templateType: "component",
+      component: ExampleFormComponent,
       matDialogConfig: {
         panelClass: ["dialog", "dialog__full-screen"],
         width: "300px",
         disableClose: true,
         data: {
           param: "data",
-          component: ExampleFormComponent,
         },
       },
     };
@@ -219,12 +219,12 @@ export class AppComponent {
     const dialogConfig: DialogConfig = {
       showCloseIcon: true,
       templateType: "component",
+      component: ExampleReportComponent,
       matDialogConfig: {
         panelClass: ["dialog", "dialog__full-screen"],
         width: "300px",
         data: {
           param: "data",
-          component: ExampleReportComponent,
         },
       },
     };
@@ -236,6 +236,7 @@ export class AppComponent {
     const dialogConfig: DialogConfig = {
       showCloseIcon: true,
       templateType: "component",
+      component: ExampleAvailableTimeComponent,
       matDialogConfig: {
         disableClose: true,
         panelClass: ["dialog", "dialog__full-screen"],
@@ -254,7 +255,6 @@ export class AppComponent {
             "13:00",
             "14:00",
           ],
-          component: ExampleAvailableTimeComponent,
         },
       },
     };
@@ -278,12 +278,10 @@ export class AppComponent {
       backDropBlur: true,
       backDropCustomElement: this.renderer,
       templateType: "component",
+      component: ExampleSubcriptionComponent,
       matDialogConfig: {
         panelClass: ["dialog", "dialog__full-screen"],
-        disableClose: true,
-        data: {
-          component: ExampleSubcriptionComponent,
-        },
+        disableClose: true
       },
     };
 
@@ -302,6 +300,7 @@ export class AppComponent {
       showCloseIcon: true,
       backDropCustomElement: this.renderer,
       templateType: "component",
+      component: ExampleAvailableTimeComponent,
       matDialogConfig: {
         panelClass: ["dialog", "dialog__full-screen"],
         width: "500px",
@@ -319,7 +318,6 @@ export class AppComponent {
             "13:00",
             "14:00",
           ],
-          component: ExampleAvailableTimeComponent,
         },
       },
     };

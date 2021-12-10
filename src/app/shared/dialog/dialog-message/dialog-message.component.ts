@@ -8,7 +8,6 @@ import { DialogContent, DialogResponse } from '../../interfaces/dialog.interface
 })
 export class DialogMessageComponent {
 
-    @Input() dialogData: any;
     @Input() dialogContent: DialogContent;
     @Output() buttonAction = new EventEmitter<DialogResponse>();
 
