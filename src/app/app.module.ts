@@ -31,7 +31,6 @@ import { ExampleSubcriptionComponent } from './examples/example-subcription/exam
     MaterialModule,
     DynamicMatDialogModule
   ],
-  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponent],
   exports: [

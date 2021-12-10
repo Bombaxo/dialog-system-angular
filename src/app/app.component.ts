@@ -200,11 +200,11 @@ export class AppComponent {
 
   openFormDialog() {
     const dialogConfig: DialogConfig = {
-      showCloseIcon: true,
       templateType: "component",
       matDialogConfig: {
         panelClass: ["dialog", "dialog__full-screen"],
         width: "300px",
+        disableClose: true,
         data: {
           param: "data",
           component: ExampleFormComponent,
@@ -381,6 +381,7 @@ export class AppComponent {
     const dialogConfig: DialogConfig = {
       backDropCustomElement: this.renderer,
       templateType: "message",
+      backDropBlur: true,
       dialogContent: dialogContent,
       matDialogConfig: {
         disableClose: true,
