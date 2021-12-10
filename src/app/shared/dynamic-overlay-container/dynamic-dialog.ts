@@ -4,6 +4,11 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { Location } from '@angular/common';
 import { DynamicOverlay } from './dynamic-overlay';
 
+/**************************************************************************************
+ *    Code solution adapted from: 
+ *    https://github.com/reppners/ngx-cdk-dynamic-overlay-container
+**************************************************************************************/
+
 @Injectable()
 export class DynamicMatDialog extends MatDialog {
 

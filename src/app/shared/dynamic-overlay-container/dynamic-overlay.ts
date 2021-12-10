@@ -10,6 +10,11 @@ import { ComponentFactoryResolver, Injectable, Injector, NgZone, Optional } from
 import { Directionality } from '@angular/cdk/bidi';
 import { DynamicOverlayContainer } from './dynamic-overlay-container';
 
+/**************************************************************************************
+ *    Code solution adapted from: 
+ *    https://github.com/reppners/ngx-cdk-dynamic-overlay-container
+**************************************************************************************/
+
 @Injectable()
 export class DynamicOverlay extends Overlay {
 
