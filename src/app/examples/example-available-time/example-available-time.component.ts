@@ -36,7 +36,7 @@ export class ExampleAvailableTimeComponent {
         message = `Do you want to confirm the appointment at ${time}?`;
         buttonConfig = {
           label: "Confirm",
-          action: "book-confirm",
+          action: "inner-book-confirmed",
           color: "success",
           icon: "check",
         };
@@ -47,7 +47,7 @@ export class ExampleAvailableTimeComponent {
         message = `Do you want to cancel the appointment at ${time}?`;
         buttonConfig = {
           label: "Cancel",
-          action: "book-cancel",
+          action: "inner-book-canceled",
           color: "warn",
           icon: "report",
         };

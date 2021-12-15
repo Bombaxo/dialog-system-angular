@@ -1,9 +1,13 @@
 .sidenav {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    mat-toolbar {
+        position: fixed;
+    }
+
     .spacer {
         flex: 1 1 auto;
     }
@@ -15,13 +19,15 @@
 main {
     width: 100%;
     height: calc(100% - 64px); // 64px from header height
-    display: flex;
     flex: 1;
-    flex-wrap: wrap;
+    display: flex;
     align-items: center;
     flex-direction: column;
     padding: 24px;
+    margin: 64px 0 0 0;
     overflow: auto;
+    position: relative;
+
 
     h2 {
         display: block;
@@ -46,8 +52,6 @@ main {
 
 @media (max-width: 768px) {
     main {
-        max-width: unset;
-
         section div{
             display: flex;
             justify-content: center !important;
@@ -55,5 +59,12 @@ main {
                 margin: 8px auto;
             }
         }
+    }
+}
+
+@media (max-width: 599px) {
+    main {
+        margin-top: 56px;
+        height: calc(100% - 56px); // 56px from header height
     }
 }

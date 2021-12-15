@@ -36,7 +36,6 @@ body {
 .mat-sidenav-content {
     overflow: hidden !important;
 }
-
 .mat-dialog-container{
     padding: 0 !important;
     border-radius: 10px !important;
@@ -74,5 +73,10 @@ button{
             background-color: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(6px);
         }
+    }
+
+    .mat-dialog-actions{
+        padding: 0;
+        margin: 0;
     }
 }

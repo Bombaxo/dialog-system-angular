@@ -172,7 +172,7 @@ export class AppComponent {
       content: ["Do you want to logout from your account?"],
       primaryButton: {
         label: "Logout",
-        action: "logout",
+        action: "logout-confirmed",
         icon: "logout",
       },
       secondaryButton: {
