@@ -272,11 +272,10 @@ export class AppComponent {
    *********************** */
 
   openFreemiunCustomDialog() {
-    this.dialogService.scrollContainerRef = this.overlayCustomDialogMain;
-
     const dialogConfig: DialogConfig = {
-      backDropBlur: true,
-      backDropCustomElement: this.renderer,
+      overlayBlur: true,
+      overlayCustomRender: this.renderer,
+      overlayCustomElement: this.overlayCustomDialogMain,
       templateType: "component",
       component: ExampleSubcriptionComponent,
       matDialogConfig: {
@@ -294,11 +293,10 @@ export class AppComponent {
   }
 
   openAvailabilitiesCustomDialog() {
-    this.dialogService.scrollContainerRef = this.overlayCustomDialogMain;
-
     const dialogConfig: DialogConfig = {
       showCloseIcon: true,
-      backDropCustomElement: this.renderer,
+      overlayCustomRender: this.renderer,
+      overlayCustomElement: this.overlayCustomDialogMain,
       templateType: "component",
       component: ExampleAvailableTimeComponent,
       matDialogConfig: {
@@ -331,8 +329,6 @@ export class AppComponent {
   }
 
   openMessageCustomDialog() {
-    this.dialogService.scrollContainerRef = this.overlayCustomDialogMain;
-
     const dialogContent: DialogContent = {
       title: "Main nav",
       content: ["Do you want to check main nav while deciding blue or red?"],
@@ -348,7 +344,8 @@ export class AppComponent {
     };
 
     const dialogConfig: DialogConfig = {
-      backDropCustomElement: this.renderer,
+      overlayCustomRender: this.renderer,
+      overlayCustomElement: this.overlayCustomDialogMain,
       templateType: "message",
       dialogContent: dialogContent,
     };
@@ -362,8 +359,6 @@ export class AppComponent {
   }
 
   openMessageBlockedCustomDialog() {
-    this.dialogService.scrollContainerRef = this.overlayCustomDialogDiv;
-
     const dialogContent: DialogContent = {
       title: "Content locked",
       content: ["You need to be premium to use this buttons"],
@@ -377,9 +372,10 @@ export class AppComponent {
     };
 
     const dialogConfig: DialogConfig = {
-      backDropCustomElement: this.renderer,
+      overlayBlur: true,
+      overlayCustomRender: this.renderer,
+      overlayCustomElement: this.overlayCustomDialogDiv,
       templateType: "message",
-      backDropBlur: true,
       dialogContent: dialogContent,
       matDialogConfig: {
         disableClose: true,

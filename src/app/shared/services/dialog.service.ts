@@ -1,4 +1,4 @@
-import { Injectable, ElementRef } from '@angular/core';
+import { Injectable, Renderer2, ElementRef } from '@angular/core';
 import { MatDialog,  MatDialogRef } from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
@@ -13,7 +13,8 @@ import { DynamicMatDialog } from '../dynamic-overlay-container/dynamic-dialog';
 export class DialogService {
 
     dialogRef: MatDialogRef<DialogComponent>;
-    scrollContainerRef: ElementRef;
+    targetRenderer: Renderer2;
+    targetElementRef: ElementRef;
 
     private defaultDialog: DialogConfig = {
         showCloseIcon: false,
@@ -41,12 +42,14 @@ export class DialogService {
             matDialogConfig: {
                 ...this.defaultDialog?.matDialogConfig,
                 ...dialogConfig?.matDialogConfig,
-                backdropClass: dialogConfig.backDropBlur ? 'dialog__overlay--blur' : ''
+                backdropClass: dialogConfig.overlayBlur ? 'dialog__overlay--blur' : ''
             }
         };
 
-        if (dialogConfig.backDropCustomElement) {
-            this.customDialog.setContainerElement(this.scrollContainerRef.nativeElement, dialogConfig.backDropCustomElement);
+        if (dialogConfig?.overlayCustomRender && dialogConfig?.overlayCustomElement?.nativeElement) {
+            this.targetRenderer = dialogConfig.overlayCustomRender;
+            this.targetElementRef = dialogConfig.overlayCustomElement;
+            this.customDialog.setContainerElement(dialogConfig.overlayCustomElement.nativeElement, dialogConfig.overlayCustomRender);
             this.dialogRef = this.customDialog.open(DialogComponent, dialogOptions?.matDialogConfig);
         } else {
             this.dialogRef = this.dialog.open(DialogComponent, dialogOptions.matDialogConfig);
@@ -66,6 +69,9 @@ export class DialogService {
     }
 
     close(action: DialogResponse): void {
+        if (this.targetRenderer && this.targetElementRef) {
+            this.targetRenderer.setStyle(this.targetElementRef.nativeElement, 'overflow', 'auto');
+        }
         this.dialogRef.close(action);
     }
 
