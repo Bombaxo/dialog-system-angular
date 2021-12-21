@@ -70,7 +70,8 @@ export class DialogService {
 
     close(action: DialogResponse): void {
         if (this.targetRenderer && this.targetElementRef) {
-            this.targetRenderer.setStyle(this.targetElementRef.nativeElement, 'overflow', 'auto');
+            this.targetRenderer.removeStyle(this.targetElementRef.nativeElement, 'overflow');
+            this.targetRenderer.removeStyle(this.targetElementRef.nativeElement, 'transform');
         }
         this.dialogRef.close(action);
     }

@@ -388,7 +388,10 @@ export class AppComponent {
       .subscribe((response: DialogResponse) => {
         this.response = response?.action;
         if (response?.action === "go-premium") {
+          this.dialogService.close({ action: response?.action });
           this.openFreemiunCustomDialog();
+        } else{
+          this.dialogService.close({ action: 'close-custom-dialog' });
         }
       });
   }
