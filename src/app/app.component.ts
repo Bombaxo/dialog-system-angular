@@ -203,7 +203,7 @@ export class AppComponent {
       templateType: "component",
       component: ExampleFormComponent,
       matDialogConfig: {
-        panelClass: ["dialog", "dialog__full-screen"],
+        panelClass: ["dialog__mob-fullscreen"],
         width: "300px",
         disableClose: true,
         data: {
@@ -221,7 +221,7 @@ export class AppComponent {
       templateType: "component",
       component: ExampleReportComponent,
       matDialogConfig: {
-        panelClass: ["dialog", "dialog__full-screen"],
+        panelClass: ["dialog__mob-fullscreen"],
         width: "300px",
         data: {
           param: "data",
@@ -239,7 +239,7 @@ export class AppComponent {
       component: ExampleAvailableTimeComponent,
       matDialogConfig: {
         disableClose: true,
-        panelClass: ["dialog", "dialog__full-screen"],
+        panelClass: ["dialog__mob-fullscreen"],
         width: "500px",
         height: "400px",
         data: {
@@ -300,7 +300,7 @@ export class AppComponent {
       templateType: "component",
       component: ExampleAvailableTimeComponent,
       matDialogConfig: {
-        panelClass: ["dialog", "dialog__full-screen"],
+        panelClass: ["dialog__mob-fullscreen"],
         width: "500px",
         height: "400px",
         data: {
