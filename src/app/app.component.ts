@@ -22,7 +22,7 @@ export class AppComponent {
   @ViewChild("overlayCustomDialogDiv", { static: false })
   overlayCustomDialogDiv: ElementRef; // div
 
-  response = "";
+  dialogResponse = "";
 
   constructor(
     private dialogService: DialogService,
@@ -127,7 +127,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
       });
   }
 
@@ -162,7 +162,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
       });
   }
 
@@ -190,7 +190,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
       });
   }
 
@@ -263,7 +263,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
       });
   }
 
@@ -288,7 +288,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
       });
   }
 
@@ -324,7 +324,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
       });
   }
 
@@ -336,10 +336,12 @@ export class AppComponent {
         label: "Red",
         action: "red",
         color: "warn",
+        icon: "grid_3x3",
       },
       secondaryButton: {
         label: "Blue",
         action: "blue",
+        icon: "grid_goldenratio",
       },
     };
 
@@ -354,7 +356,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
       });
   }
 
@@ -365,9 +367,12 @@ export class AppComponent {
       primaryButton: {
         label: "Go premium",
         action: "go-premium",
+        icon: "military_tech",
+
       },
       secondaryButton: {
         label: "No thanks",
+        icon: "thumb_down",
       },
     };
 
@@ -386,7 +391,7 @@ export class AppComponent {
       .open(dialogConfig)
       .afterClosed()
       .subscribe((response: DialogResponse) => {
-        this.response = response?.action;
+        this.dialogResponse = response?.action;
         if (response?.action === "go-premium") {
           this.dialogService.close({ action: response?.action });
           this.openFreemiunCustomDialog();
