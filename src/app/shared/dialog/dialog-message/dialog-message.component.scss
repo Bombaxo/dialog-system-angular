@@ -7,8 +7,8 @@
         position: relative;
 
         h2 {
-            font-size: 19px;
-            line-height: 11px;
+            font-size: 18px;
+            line-height: 18px;
             text-align: center;
             margin-top: 10px;
         }
@@ -38,32 +38,21 @@
 
         mat-dialog-actions {
             justify-content: center;
-            gap: 10px;
-            padding: 0 0;
+            gap: 16px;
+            padding: 0;
             margin: 0;
             width: 100%;
 
             button {
                 min-width: 145px;
-                min-height: 40px;
             }
         }
-    }
-
-    &.dialog-content-xl {
-        height: 100%;
     }
 }
 
 @media (max-width: 756px) {
     .dialog-message {
         mat-dialog-actions {
-            justify-content: center;
-            gap: 10px;
-            padding: 0 0;
-            margin: 0;
-            width: 100%;
-
             button {
                 min-width: 120px;
             }
@@ -71,18 +60,14 @@
     }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 320px) {
     .dialog-message {
         mat-dialog-actions {
-            display: flex;
             flex-direction: column-reverse;
-            gap: 0;
+
             button {
                 min-width: unset;
                 width: 100%;
-            }
-            & :first-child {
-                margin-top: 8px;
             }
         }
     }
