@@ -1,174 +1,177 @@
-<mat-sidenav-container class="sidenav" autosize="true" (backdropClick)="sidenav.close()">
-  <mat-sidenav #sidenav (keydown.escape)="sidenav.close()" disableClose>
-    <mat-list>
-      <mat-list-item> <mat-icon>face</mat-icon>User </mat-list-item>
-      <mat-list-item> <mat-icon>event</mat-icon>Calendar </mat-list-item>
-      <mat-list-item> <mat-icon>payment</mat-icon>Payment </mat-list-item>
-    </mat-list>
-  </mat-sidenav>
+<div class="layout">
+  <mat-sidenav-container class="sidenav" autosize="true" (backdropClick)="sidenav.close()">
+    <mat-sidenav #sidenav (keydown.escape)="sidenav.close()" disableClose>
+      <mat-list>
+        <mat-list-item> <mat-icon>face</mat-icon>User </mat-list-item>
+        <mat-list-item> <mat-icon>event</mat-icon>Calendar </mat-list-item>
+        <mat-list-item> <mat-icon>payment</mat-icon>Payment </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        mat-icon-button
-        class="sidenav__btn-menu"
-        (click)="sidenav.open()"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button
+          mat-icon-button
+          class="sidenav__btn-menu"
+          (click)="sidenav.open()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
 
-      <span>Dialog System</span>
+        <span>Dialog System</span>
 
-      <span class="spacer"></span>
+        <span class="flex-spacer"></span>
 
-      <a
-        href="https://github.com/Bombaxo/dialog-system-angular"
-        mat-icon-button
-        target="_blank"
-        matTooltip="Code repository - Github"
-      >
-        <mat-icon>code</mat-icon>
-      </a>
-    </mat-toolbar>
+        <a
+          href="https://github.com/Bombaxo/dialog-system-angular"
+          mat-icon-button
+          target="_blank"
+          matTooltip="Code repository - Github"
+        >
+          <mat-icon>code</mat-icon>
+        </a>
+      </mat-toolbar>
 
-    <main #overlayCustomDialogMain>
-      <div #overlayCustomDialogDiv>
+      <main #overlayCustomDialogMain>
+        <div class="scroll-container">
+          <div #overlayCustomDialogDiv>
 
-        <div class="d-flex flex-column align-items-center">
-          <h3>Response of current dialog action</h3>
-          <h3><b class="my-2">{{ response }}</b></h3>
+            <div class="d-flex flex-column align-items-center">
+              <h3>Response of current dialog action</h3>
+              <h3><b class="my-2">{{ response }}</b></h3>
+            </div>
+
+            <section class="row">
+              <h2>Alerts</h2>
+              
+              <div class="col-12 col-sm-4 d-flex justify-content-end">
+                <button mat-flat-button color="primary" (click)="openAlertStandar()">
+                  <mat-icon>notifications</mat-icon>
+                  Alert info
+                </button>
+              </div>
+              <div class="col-12 col-sm-4 d-flex justify-content-center">
+                <button mat-flat-button color="warning" (click)="openAlertWarning()">
+                  <mat-icon>warning</mat-icon>
+                  Alert warning
+                </button>
+              </div>
+              <div class="col-12 col-sm-4 d-flex justify-content-start">
+                <button mat-flat-button color="warn" (click)="openAlertDanger()">
+                  <mat-icon>report</mat-icon>
+                  Alert danger
+                </button>
+              </div>
+            </section>
+
+            <section class="row">
+              <h2>Confirmation actions</h2>
+
+              <div class="col-12 col-sm-4 d-flex justify-content-end">
+                <button mat-flat-button color="success" (click)="openConfirmSuccess()">
+                  <mat-icon>check</mat-icon>
+                  Confirm success
+                </button>
+              </div>
+
+              <div class="col-12 col-sm-4 d-flex justify-content-center">
+                <button mat-flat-button color="warn" (click)="openConfirmDanger()">
+                  <mat-icon>report</mat-icon>
+                  Confirm danger
+                </button>
+              </div>
+
+              <div class="col-12 col-sm-4 d-flex justify-content-start">
+                <button
+                  mat-flat-button
+                  (click)="openConfirmEvent()"
+                  color="primary"
+                >
+                  <mat-icon>info</mat-icon>
+                  Confirm event
+                </button>
+              </div>
+            </section>
+
+            <section class="row">
+              <h2>Components injection</h2>
+
+              <div class="col-12 col-sm-6 d-flex justify-content-end">
+                <button mat-flat-button (click)="openFormDialog()" color="primary">
+                  <mat-icon>view_list</mat-icon>
+                  Open Form
+                </button>
+              </div>
+              <div class="col-12 col-sm-6 d-flex justify-content-start">
+                <button mat-flat-button (click)="openReportDialog()" color="primary">
+                  <mat-icon>feed</mat-icon>
+                  Open Report
+                </button>
+              </div>
+            </section>
+
+            <section class="row">
+              <h2>Dialog confirm inside</h2>
+
+              <div class="col-12 col-sm-4 d-flex justify-content-end">
+                <button mat-flat-button color="success" (click)="openTimeSlotInnerDialog('success')">
+                  <mat-icon>check</mat-icon>
+                  Inner success
+                </button>
+              </div>
+
+              <div class="col-12 col-sm-4 d-flex justify-content-center">
+                <button mat-flat-button color="warn" (click)="openTimeSlotInnerDialog('error')">
+                  <mat-icon>report</mat-icon>
+                  Inner danger
+                </button>
+              </div>
+
+              <div class="col-12 col-sm-4 d-flex justify-content-start">
+                <button
+                  mat-flat-button
+                  (click)="openTimeSlotInnerDialog('info')"
+                  color="primary"
+                >
+                  <mat-icon>info</mat-icon>
+                  Inner info
+                </button>
+              </div>
+            </section>
+
+            <section class="row">
+              <h2>Custom dialog overlay </h2>
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-end">
+                <button mat-stroked-button color="primary" (click)="openFreemiunCustomDialog()">
+                  <mat-icon>branding_watermark</mat-icon>
+                  Fremiun blury
+                </button>
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-center">
+                <button mat-stroked-button color="primary" (click)="openAvailabilitiesCustomDialog()">
+                  <mat-icon>branding_watermark</mat-icon>
+                  Availabilities
+                </button>
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-center">
+                <button mat-stroked-button color="primary" (click)="openMessageCustomDialog()">
+                  <mat-icon>branding_watermark</mat-icon>
+                  Message 
+                </button>
+              </div>
+              
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-start">
+                <button mat-stroked-button color="primary" (click)="openMessageBlockedCustomDialog()">
+                  <mat-icon>branding_watermark</mat-icon>
+                  Message blury
+                </button>
+              </div>
+            </section>
+          </div>
         </div>
-
-        <section class="row">
-          <h2>Alerts</h2>
-          
-          <div class="col-12 col-sm-4 d-flex justify-content-end">
-            <button mat-flat-button color="primary" (click)="openAlertStandar()">
-              <mat-icon>notifications</mat-icon>
-              Alert info
-            </button>
-          </div>
-          <div class="col-12 col-sm-4 d-flex justify-content-center">
-            <button mat-flat-button color="warning" (click)="openAlertWarning()">
-              <mat-icon>warning</mat-icon>
-              Alert warning
-            </button>
-          </div>
-          <div class="col-12 col-sm-4 d-flex justify-content-start">
-            <button mat-flat-button color="warn" (click)="openAlertDanger()">
-              <mat-icon>report</mat-icon>
-              Alert danger
-            </button>
-          </div>
-        </section>
-
-        <section class="row">
-          <h2>Confirmation actions</h2>
-
-          <div class="col-12 col-sm-4 d-flex justify-content-end">
-            <button mat-flat-button color="success" (click)="openConfirmSuccess()">
-              <mat-icon>check</mat-icon>
-              Confirm success
-            </button>
-          </div>
-
-          <div class="col-12 col-sm-4 d-flex justify-content-center">
-            <button mat-flat-button color="warn" (click)="openConfirmDanger()">
-              <mat-icon>report</mat-icon>
-              Confirm danger
-            </button>
-          </div>
-
-          <div class="col-12 col-sm-4 d-flex justify-content-start">
-            <button
-              mat-flat-button
-              (click)="openConfirmEvent()"
-              color="primary"
-            >
-              <mat-icon>info</mat-icon>
-              Confirm event
-            </button>
-          </div>
-        </section>
-
-        <section class="row">
-          <h2>Components injection</h2>
-
-          <div class="col-12 col-sm-6 d-flex justify-content-end">
-            <button mat-flat-button (click)="openFormDialog()" color="primary">
-              <mat-icon>view_list</mat-icon>
-              Open Form
-            </button>
-          </div>
-          <div class="col-12 col-sm-6 d-flex justify-content-start">
-            <button mat-flat-button (click)="openReportDialog()" color="primary">
-              <mat-icon>feed</mat-icon>
-              Open Report
-            </button>
-          </div>
-        </section>
-
-        <section class="row">
-          <h2>Dialog confirm inside</h2>
-
-          <div class="col-12 col-sm-4 d-flex justify-content-end">
-            <button mat-flat-button color="success" (click)="openTimeSlotInnerDialog('success')">
-              <mat-icon>check</mat-icon>
-              Inner success
-            </button>
-          </div>
-
-          <div class="col-12 col-sm-4 d-flex justify-content-center">
-            <button mat-flat-button color="warn" (click)="openTimeSlotInnerDialog('error')">
-              <mat-icon>report</mat-icon>
-              Inner danger
-            </button>
-          </div>
-
-          <div class="col-12 col-sm-4 d-flex justify-content-start">
-            <button
-              mat-flat-button
-              (click)="openTimeSlotInnerDialog('info')"
-              color="primary"
-            >
-              <mat-icon>info</mat-icon>
-              Inner info
-            </button>
-          </div>
-        </section>
-
-        <section class="row">
-          <h2>Custom dialog overlay </h2>
-          <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-end">
-            <button mat-stroked-button color="primary" (click)="openFreemiunCustomDialog()">
-              <mat-icon>branding_watermark</mat-icon>
-              Fremiun blury
-            </button>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-center">
-            <button mat-stroked-button color="primary" (click)="openAvailabilitiesCustomDialog()">
-              <mat-icon>branding_watermark</mat-icon>
-              Availabilities
-            </button>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-center">
-            <button mat-stroked-button color="primary" (click)="openMessageCustomDialog()">
-              <mat-icon>branding_watermark</mat-icon>
-              Message 
-            </button>
-          </div>
-          
-          <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-start">
-            <button mat-stroked-button color="primary" (click)="openMessageBlockedCustomDialog()">
-              <mat-icon>branding_watermark</mat-icon>
-              Message blury
-            </button>
-          </div>
-        </section>
-      </div>
-
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
