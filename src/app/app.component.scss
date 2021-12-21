@@ -1,25 +1,21 @@
 :host,
-.layout,
-.sidenav {
+.layout {
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-:host,
-.layout {
     max-height: 100%;
 }
 
 .sidenav {
-    // height: 100%;
-    // display: flex;
-    // flex-direction: column;
-    // flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 
-    // mat-toolbar {
-    //     position: fixed;
-    // }
+    .mat-toolbar{
+        a:hover {
+            color: unset;
+        }
+    }
 
     .flex-spacer {
         flex: 1 1 auto;
@@ -31,32 +27,29 @@
 
 main {
     display: flex;
-    padding: 0;
+    justify-content: center;
     flex: 1;
-    overflow-y: hidden;
-    max-height: calc(100% - 64px);
+    max-height: calc(100% - 64px); // 64px from header height
     height: 100%;
     width: 100%;
-    background: red;
-    justify-content: center;
-
+    padding: 0;
+    overflow-y: hidden;
 
     h2 {
         display: block;
         width: 100%;
         text-align: center;
         font-size: 18px;
-        margin: 16px 0;
+        margin: 36px 0;
     }
     .scroll-container{
         display: flex;
-        padding: 0;
+        justify-content: center;
         flex: 1;
-        overflow-y: auto;
         height: 100%;
         width: 100%;
-        background: orange;
-        justify-content: center;
+        padding: 0;
+        overflow-y: auto;
     }
     section {
         width: 100%;
