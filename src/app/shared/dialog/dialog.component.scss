@@ -6,16 +6,20 @@
     padding: 24px;
     position: relative;
     overflow: hidden;
+
     & > button {
         position: absolute;
-        right: -8px;
-        top: 0;
+        right: -3px;
+        top: -3px;
         z-index: 500000;
         display: flex;
+        justify-content: center;
+        
         mat-icon{
-            font-size: 24px;
+            transform: scale(.7);
         }
     }
+
     &__confirm {
         position: absolute;
         display: flex;
@@ -32,6 +36,7 @@
             z-index: 500000;
         }
     }
+
     &__confirm-box {
         position: absolute;
         display: flex;
@@ -66,11 +71,7 @@
 @media (max-width: 756px) {
     .dialog {
         padding: 16px;
-        & > button {
-            right: -15px;
-            top: 2px;
-            font-size: 12px !important;
-        }
+        
         &__confirm-box {
             padding: 16px;
         }

@@ -14,15 +14,18 @@ import { ExampleReportComponent } from './examples/example-report/example-report
 import { ExampleAvailableTimeComponent } from './examples/example-available-time/example-available-time.component';
 import { ExampleSubcriptionComponent } from './examples/example-subcription/example-subcription.component';
 
+const COMMON = [
+  DialogComponent,
+  ExampleFormComponent,
+  ExampleReportComponent,
+  ExampleAvailableTimeComponent,
+  ExampleSubcriptionComponent
+];
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent,
     DialogMessageComponent,
-    ExampleFormComponent,
-    ExampleReportComponent,
-    ExampleAvailableTimeComponent,
-    ExampleSubcriptionComponent
+    ...COMMON
   ],
   imports: [
     BrowserModule,
@@ -33,18 +36,10 @@ import { ExampleSubcriptionComponent } from './examples/example-subcription/exam
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    DialogComponent,
-    ExampleFormComponent,
-    ExampleReportComponent,
-    ExampleAvailableTimeComponent,
-    ExampleSubcriptionComponent
+    ...COMMON
   ],
   exports: [
-    DialogComponent,
-    ExampleFormComponent,
-    ExampleReportComponent,
-    ExampleAvailableTimeComponent,
-    ExampleSubcriptionComponent
+    ...COMMON
   ]
 })
 export class AppModule { }

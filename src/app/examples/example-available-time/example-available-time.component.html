@@ -3,7 +3,7 @@
 <p>Please choose one of the slots available for your appointment at the selected date: <b>Friday 1st of February 2020</b></p>
 
 <ng-container *ngFor="let time of availableTimes">
-    <button mat-flat-button color="primary" type="button" class="my-1" (click)="openConfirmAppointment(time)">
+    <mat-button-toggle color="primary" type="button" class="my-1" (click)="openConfirmAppointment(time)">
         {{ time }}
-    </button>
+    </mat-button-toggle>
 </ng-container>

@@ -57,7 +57,13 @@ body {
     background-color: #ffc409;
 }
 
-button:not(.mat-icon-button),
+.mat-button-toggle {
+    background-color: #955aec;
+    border-color: #955aec !important;
+    color: white !important;
+}
+
+button:not(.mat-icon-button, .mat-button-toggle-button),
 mat-dialog-actions button {
     min-width: 100px !important;
     display: flex;
@@ -88,11 +94,6 @@ mat-dialog-actions button {
     mat-dialog-actions {
         padding: 0;
         margin: 0;
-    }
-
-    @media (max-width: 450px) {
-        max-width: 95vw !important;
-        width: 95% !important;
     }
 
     &__mob-fullscreen {
