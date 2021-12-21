@@ -32,7 +32,13 @@ import { ExampleSubcriptionComponent } from './examples/example-subcription/exam
     DynamicMatDialogModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent],
+  entryComponents: [
+    DialogComponent,
+    ExampleFormComponent,
+    ExampleReportComponent,
+    ExampleAvailableTimeComponent,
+    ExampleSubcriptionComponent
+  ],
   exports: [
     DialogComponent,
     ExampleFormComponent,
