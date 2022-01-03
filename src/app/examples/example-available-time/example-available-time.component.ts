@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogResponse,
 } from "../../shared/interfaces/dialog.interface";
-import { DialogService } from "../../shared/services/dialog.service";
+import { DialogService } from "../../shared/dialog/dialog.service";
 
 @Component({
   selector: "app-example-available-time",

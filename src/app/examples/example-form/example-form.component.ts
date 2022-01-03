@@ -1,4 +1,4 @@
-import { DialogService } from '../../shared/services/dialog.service';
+import { DialogService } from '../../shared/dialog/dialog.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 

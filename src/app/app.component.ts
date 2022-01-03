@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, Renderer2 } from "@angular/core";
 
-import { DialogService } from "./shared/services/dialog.service";
+import { DialogService } from "./shared/dialog/dialog.service";
 import {
   DialogContent,
   DialogResponse,
