@@ -3,7 +3,7 @@
 This repository brings a solution to standardize the dialog system in an app. And tries to cover all possible cases. Feel **free** to contribute to improve it 🤙.
 
 #### [🤓 Stackblitz](https://stackblitz.com/github/Bombaxo/dialog-system-angular "Stackblitz")
-#### [🚀 Live-demo](https://owaimvnkl.github.stackblitz.io "Live-demo")
+#### [🚀 Live-demo](https://bnmiqanjz.github.stackblitz.io "Live-demo")
 
 
 The `DialogService` uses `DialogComponent` as a wrapper and injects into `MatDialog` with the parameters  `MatDialogConfig`, which comes inside the parent object, named as `DialogConfig`. `DialogService` has a default init for `DialogConfig`, which can be overwriten from the call of `dialogService.open(dialogConfig)` when needed, from your app. And it returns `DialogResponse`.
